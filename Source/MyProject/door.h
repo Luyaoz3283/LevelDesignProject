@@ -38,10 +38,10 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	//GM
+	//variables
 	
-	UPROPERTY(EditAnywhere)
+	//GM
+	UPROPERTY(BlueprintReadWrite)
 		class AmyGM* GM;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -83,8 +83,10 @@ public:
 
 	
 	//set door color according to curDoor
-	void setColor();
+	void displayColor();
 	void switchColor ();
+	void resetColor();
+	void disable();
 	bool delayDoorStart;
 
 	//camera

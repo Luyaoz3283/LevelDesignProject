@@ -16,8 +16,8 @@ struct FHitResult;
 #endif
 #define MYPROJECT_switch_generated_h
 
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_SPARSE_DATA
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_RPC_WRAPPERS \
+#define LevelDesignProject_Source_MyProject_switch_h_24_SPARSE_DATA
+#define LevelDesignProject_Source_MyProject_switch_h_24_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnOverlapEnd) \
 	{ \
@@ -46,7 +46,7 @@ struct FHitResult;
 	}
 
 
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define LevelDesignProject_Source_MyProject_switch_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnOverlapEnd) \
 	{ \
@@ -75,7 +75,7 @@ struct FHitResult;
 	}
 
 
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_INCLASS_NO_PURE_DECLS \
+#define LevelDesignProject_Source_MyProject_switch_h_24_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAswitch(); \
 	friend struct Z_Construct_UClass_Aswitch_Statics; \
@@ -84,7 +84,7 @@ public: \
 	DECLARE_SERIALIZER(Aswitch)
 
 
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_INCLASS \
+#define LevelDesignProject_Source_MyProject_switch_h_24_INCLASS \
 private: \
 	static void StaticRegisterNativesAswitch(); \
 	friend struct Z_Construct_UClass_Aswitch_Statics; \
@@ -93,7 +93,7 @@ public: \
 	DECLARE_SERIALIZER(Aswitch)
 
 
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_STANDARD_CONSTRUCTORS \
+#define LevelDesignProject_Source_MyProject_switch_h_24_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API Aswitch(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(Aswitch) \
@@ -106,7 +106,7 @@ private: \
 public:
 
 
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_ENHANCED_CONSTRUCTORS \
+#define LevelDesignProject_Source_MyProject_switch_h_24_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API Aswitch(Aswitch&&); \
@@ -117,28 +117,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(Aswitch); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(Aswitch)
 
 
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_PRIVATE_PROPERTY_OFFSET
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_11_PROLOG
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_GENERATED_BODY_LEGACY \
+#define LevelDesignProject_Source_MyProject_switch_h_24_PRIVATE_PROPERTY_OFFSET
+#define LevelDesignProject_Source_MyProject_switch_h_21_PROLOG
+#define LevelDesignProject_Source_MyProject_switch_h_24_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_PRIVATE_PROPERTY_OFFSET \
-	MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_SPARSE_DATA \
-	MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_RPC_WRAPPERS \
-	MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_INCLASS \
-	MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_STANDARD_CONSTRUCTORS \
+	LevelDesignProject_Source_MyProject_switch_h_24_PRIVATE_PROPERTY_OFFSET \
+	LevelDesignProject_Source_MyProject_switch_h_24_SPARSE_DATA \
+	LevelDesignProject_Source_MyProject_switch_h_24_RPC_WRAPPERS \
+	LevelDesignProject_Source_MyProject_switch_h_24_INCLASS \
+	LevelDesignProject_Source_MyProject_switch_h_24_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_GENERATED_BODY \
+#define LevelDesignProject_Source_MyProject_switch_h_24_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_PRIVATE_PROPERTY_OFFSET \
-	MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_SPARSE_DATA \
-	MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_INCLASS_NO_PURE_DECLS \
-	MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h_14_ENHANCED_CONSTRUCTORS \
+	LevelDesignProject_Source_MyProject_switch_h_24_PRIVATE_PROPERTY_OFFSET \
+	LevelDesignProject_Source_MyProject_switch_h_24_SPARSE_DATA \
+	LevelDesignProject_Source_MyProject_switch_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
+	LevelDesignProject_Source_MyProject_switch_h_24_INCLASS_NO_PURE_DECLS \
+	LevelDesignProject_Source_MyProject_switch_h_24_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -146,7 +146,10 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> MYPROJECT_API UClass* StaticClass<class Aswitch>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID MyProject_b00719e28d0a53130932f5343d92545a9a4cd445_Source_MyProject_switch_h
+#define CURRENT_FILE_ID LevelDesignProject_Source_MyProject_switch_h
 
 
+#define FOREACH_ENUM_SWITCHCOLORLIST(op) \
+	op(orangeSwitch) \
+	op(blueSwitch) 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

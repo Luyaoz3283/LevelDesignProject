@@ -8,6 +8,16 @@
 #include "door.h"
 #include "switch.generated.h"
 
+
+
+UENUM(BlueprintType)
+enum switchColorList
+{
+	orangeSwitch,
+	blueSwitch
+};
+
+
 UCLASS()
 class MYPROJECT_API Aswitch : public AActor
 {
@@ -26,18 +36,30 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	//GM
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite)
 		class AmyGM* MyGM;
 
-
+	//variables
+	bool turnedOn;
+	bool ballInside;
 	//components
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-		UStaticMeshComponent* switchMesh;
+		UStaticMeshComponent* buttonMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-		class UBoxComponent* switchTrigger;
+		class UBoxComponent* buttonTrigger;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneComponent* parent;
-
+	//controller components
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		UStaticMeshComponent* controllerMesh;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		class UBoxComponent* controllerTrigger;
+	UPROPERTY(EditAnywhere)
+		class AcollectableBall* ball;
+	
+	//color
+	UPROPERTY(EditAnywhere)
+		TArray<TEnumAsByte<switchColorList>> colorList;
 
 	//when press the switch
 	UFUNCTION()
@@ -53,5 +75,7 @@ public:
 
 	//press switch
 	void press();
+	void turnOn();
+	void turnOff();
 
 };

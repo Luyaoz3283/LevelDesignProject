@@ -290,6 +290,8 @@
     <ClInclude Include="..\..\Source\MyProject\MyProject.h"/>
     <ClCompile Include="..\..\Source\MyProject\switch.cpp"/>
     <ClInclude Include="..\..\Source\MyProject\switch.h"/>
+    <ClCompile Include="..\..\Source\MyProject\switchActivation.cpp"/>
+    <ClInclude Include="..\..\Source\MyProject\switchActivation.h"/>
     <ClCompile Include="..\..\Source\MyProject\test.cpp"/>
     <ClInclude Include="..\..\Source\MyProject\test.h"/>
   </ItemGroup>

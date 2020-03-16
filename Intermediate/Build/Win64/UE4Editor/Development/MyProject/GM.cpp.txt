@@ -1,2 +1,2 @@
-C:\Users\liekk\Downloads\MyProject-b00719e28d0a53130932f5343d92545a9a4cd445\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
-C:\Users\liekk\Downloads\MyProject-b00719e28d0a53130932f5343d92545a9a4cd445\Source\MyProject\GM.h
+F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
+F:\gameProject\LevelDesignProject\Source\MyProject\GM.h

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "switch.h"
 #include "collectableBall.generated.h"
 
 UCLASS()
@@ -23,8 +24,13 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+
+	//variables
 	bool beingHeld;
 	APawn* theCharacter;
+	FVector origin;
+	//actors
+	Aswitch* theSwitch;
 	UPROPERTY(BlueprintReadWrite)
 		class AmyGM* MyGM;
 	//components
@@ -39,6 +45,8 @@ public:
 		void onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UFUNCTION()
 		void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+	void resetLocation();
 
 
 

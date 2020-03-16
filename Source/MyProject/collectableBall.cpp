@@ -36,7 +36,8 @@ void AcollectableBall::BeginPlay()
 	ballTrigger->OnComponentBeginOverlap.AddDynamic(this, &AcollectableBall::onOverlapBegin);
 	//ballTrigger->OnComponentBeginOverlap.AddDynamic(this, &AcollectableBall:onOverlapBegin);
 	ballTrigger->OnComponentEndOverlap.AddDynamic(this, &AcollectableBall::OnOverlapEnd);
-	
+	//initialize
+	origin = GetActorLocation();
 }
 
 // Called every frame
@@ -63,5 +64,11 @@ void AcollectableBall::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor*
 		MyGM->setCurBall(nullptr);
 	}
 	
+}
+
+void AcollectableBall::resetLocation()
+{
+	SetActorLocation(origin);
+	theSwitch->turnOff();
 }
 

@@ -60,25 +60,27 @@ void AmyGM::searchTarget()
 
 void AmyGM::press()
 {
-	if (curSwitch != nullptr) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "press E");
+	//switch color
+	if (curSwitch != nullptr && curSwitch->turnedOn) {
+		
 		for (int i = 0; i < curSwitch->controlList.Num(); i++) {
 			curSwitch->controlList[i]->switchColor();
 		}
 		//int32 doorAmount = MyGM->curDoorList.Num();
 		searchTarget();
 	}
+	//list ball
 	if (curBall != nullptr) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball");
-		
 		//if currently hold, drop
 		if (curBall->beingHeld == true) {
 			curBall->beingHeld = false;
-			curBall = nullptr;
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "false");
+			//curBall = nullptr;
 		}
 		//if not hold, pick up
 		else {
 			curBall->beingHeld = true;
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "true");
 			
 		}
 	}

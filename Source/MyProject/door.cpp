@@ -43,13 +43,19 @@ void Adoor::BeginPlay()
 {
 	Super::BeginPlay();
 	//door initialization 
-	curColor = colorList[0];
-	setColor();
+	//
+	disable();
 	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, *GETENUMSTRING("doorColorStock", color1));
 	delayDoorStart = true;
 	//project camera image to texture
 	projectcameraImage();
+	//may delete
 	colorIndex = 0;
+	curColor = colorList[0];
+	
+	
+	
+	
 }
 
 // Called every frame
@@ -80,7 +86,7 @@ void Adoor::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAct
 	}
 }
 
-void Adoor::setColor()
+void Adoor::displayColor()
 {
 	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "set color");
 	if (curColor != NULL) {
@@ -95,9 +101,6 @@ void Adoor::setColor()
 		}
 		else if (curColor == doorColorStock::green) {
 			doorMesh->SetMaterial(0, greenMaterial);
-		}
-		else if (curColor == doorColorStock::grey) {
-			doorMesh->SetMaterial(0, greyMaterial);
 		}
 	}
 }
@@ -122,7 +125,19 @@ void Adoor::switchColor()
 		colorIndex = 0;
 	}
 	curColor = colorList[colorIndex];
-	setColor();
+	displayColor();
+}
+
+void Adoor::resetColor()
+{
+	colorIndex = 0;
+	curColor = colorList[colorIndex];
+	displayColor();
+}
+
+void Adoor::disable()
+{
+	doorMesh->SetMaterial(0, greyMaterial);
 }
 
 void Adoor::projectcameraImage()

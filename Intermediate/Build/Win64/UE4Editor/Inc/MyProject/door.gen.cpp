@@ -420,7 +420,7 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 		{ "ToolTip", "GM" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Adoor_Statics::NewProp_GM = { "GM", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Adoor, GM), Z_Construct_UClass_AmyGM_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Adoor_Statics::NewProp_GM_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Adoor_Statics::NewProp_GM_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Adoor_Statics::NewProp_GM = { "GM", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Adoor, GM), Z_Construct_UClass_AmyGM_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Adoor_Statics::NewProp_GM_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Adoor_Statics::NewProp_GM_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_Adoor_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_noDisplayMat,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_renderMat,
@@ -469,7 +469,7 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(Adoor, 3718720234);
+	IMPLEMENT_CLASS(Adoor, 3743438178);
 	template<> MYPROJECT_API UClass* StaticClass<Adoor>()
 	{
 		return Adoor::StaticClass();
