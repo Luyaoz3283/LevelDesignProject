@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"F:\\gameProject\\LevelDesignProject\\Source\\MyProject\\MyProject.Build.cs",
+		"F:\\gameProject\\LevelDesignProject\\Source\\MyProject.Target.cs",
+		"F:\\gameProject\\LevelDesignProject\\Source\\MyProjectEditor.Target.cs"
+	],
+	"EngineVersion": "4.24.3"
+}
