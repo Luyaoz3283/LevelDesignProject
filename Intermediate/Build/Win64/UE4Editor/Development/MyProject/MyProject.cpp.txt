@@ -1,2 +1,2 @@
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
-F:\gameProject\LevelDesignProject\Source\MyProject\MyProject.h
+D:\levelDesignProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
+D:\levelDesignProject\LevelDesignProject\Source\MyProject\MyProject.h

@@ -19,7 +19,7 @@ AcollectableBall::AcollectableBall()
 
 	//ballMesh->SetupAttachment(ballMesh);
 	ballTrigger->SetupAttachment(ballMesh);
-	beingHeld = false;
+	
 
 }
 
@@ -27,6 +27,8 @@ AcollectableBall::AcollectableBall()
 void AcollectableBall::BeginPlay()
 {
 	Super::BeginPlay();
+	//
+	beingHeld = false;
 	//get character
 	if (GetWorld()->GetFirstPlayerController() != NULL) {
 		theCharacter = GetWorld()->GetFirstPlayerController()->GetPawn();

@@ -228,8 +228,8 @@
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\ClothingSystemRuntimeInterface
 /I Runtime\ClothingSystemRuntimeInterface\Public
 /I Runtime\AudioMixerCore\Public
-/I C:\Users\liekk\Downloads\MyProject-b00719e28d0a53130932f5343d92545a9a4cd445\Intermediate\Build\Win64\UE4Editor\Inc\MyProject
-/I C:\Users\liekk\Downloads\MyProject-b00719e28d0a53130932f5343d92545a9a4cd445\Source
+/I F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject
+/I F:\gameProject\LevelDesignProject\Source
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf
@@ -259,12 +259,12 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"
-/FI"C:\Users\liekk\Downloads\MyProject-b00719e28d0a53130932f5343d92545a9a4cd445\Intermediate\Build\Win64\MyProjectEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Yu"C:\Users\liekk\Downloads\MyProject-b00719e28d0a53130932f5343d92545a9a4cd445\Intermediate\Build\Win64\MyProjectEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\Users\liekk\Downloads\MyProject-b00719e28d0a53130932f5343d92545a9a4cd445\Intermediate\Build\Win64\MyProjectEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"C:\Users\liekk\Downloads\MyProject-b00719e28d0a53130932f5343d92545a9a4cd445\Source\MyProject\collectableBall.cpp"
-/FI"C:\Users\liekk\Downloads\MyProject-b00719e28d0a53130932f5343d92545a9a4cd445\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h"
-/Fo"C:\Users\liekk\Downloads\MyProject-b00719e28d0a53130932f5343d92545a9a4cd445\Intermediate\Build\Win64\UE4Editor\Development\MyProject\collectableBall.cpp.obj"
+/FI"F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\MyProjectEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Yu"F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\MyProjectEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\MyProjectEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+"F:\gameProject\LevelDesignProject\Source\MyProject\collectableBall.cpp"
+/FI"F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h"
+/Fo"F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\collectableBall.cpp.obj"
 /TP
 /GR-
 /W4
