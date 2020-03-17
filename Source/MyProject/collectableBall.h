@@ -29,6 +29,8 @@ public:
 	bool beingHeld;
 	APawn* theCharacter;
 	FVector origin;
+	//component
+	
 	//actors
 	Aswitch* theSwitch;
 	UPROPERTY(BlueprintReadWrite)
@@ -47,6 +49,8 @@ public:
 		void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	void resetLocation();
+	void PickedUp();
+	void Dropped();
 
 
 
