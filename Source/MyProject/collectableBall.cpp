@@ -72,15 +72,3 @@ void AcollectableBall::resetLocation()
 	theSwitch->turnOff();
 }
 
-void AcollectableBall::PickedUp()
-{
-}
-
-//drop or pick up ball
-void AcollectableBall::Dropped()
-{
-	beingHeld = !beingHeld;
-	ballMesh->SetSimulatePhysics(beingHeld? false:true);
-	ballMesh->SetEnableGravity(beingHeld? false:true);
-}
-
