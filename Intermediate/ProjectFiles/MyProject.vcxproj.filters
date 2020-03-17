@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{C124FE1A-D330-4527-B40D-35E458559194}</UniqueIdentifier>
+      <UniqueIdentifier>{9E43746C-C9A6-415A-9886-189063747ED2}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyProject.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitignore" />
     <None Include="..\..\README.md" />
     <Filter Include="Config">
-      <UniqueIdentifier>{DBADCDB9-7525-4A26-B42C-984A80643410}</UniqueIdentifier>
+      <UniqueIdentifier>{2A0FA631-E4DB-4D28-AB0F-24FDB1BB2563}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,7 +32,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MyProject">
-      <UniqueIdentifier>{817028F1-1081-4380-90D8-26429ED576D7}</UniqueIdentifier>
+      <UniqueIdentifier>{72C64B52-69A6-4CA7-9D63-6289C37D2A9A}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\MyProject\collectableBall.cpp">
       <Filter>Source\MyProject</Filter>
@@ -44,18 +44,6 @@
       <Filter>Source\MyProject</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MyProject\door.h">
-      <Filter>Source\MyProject</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\MyProject\gameManager.cpp">
-      <Filter>Source\MyProject</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\MyProject\gameManager.h">
-      <Filter>Source\MyProject</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\MyProject\GM.cpp">
-      <Filter>Source\MyProject</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\MyProject\GM.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\MyProject\myGM.cpp">
@@ -83,12 +71,6 @@
       <Filter>Source\MyProject</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MyProject\switchActivation.h">
-      <Filter>Source\MyProject</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\MyProject\test.cpp">
-      <Filter>Source\MyProject</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\MyProject\test.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
   </ItemGroup>
