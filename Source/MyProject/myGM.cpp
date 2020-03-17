@@ -20,6 +20,7 @@ void AmyGM::BeginPlay()
 	Super::BeginPlay();
 	delayDoorStart = true;
 	//initialization
+	//get ball mesh component
 }
 
 // Called every frame
@@ -73,13 +74,13 @@ void AmyGM::press()
 	if (curBall != nullptr) {
 		//if currently hold, drop
 		if (curBall->beingHeld == true) {
-			curBall->beingHeld = false;
-			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "false");
-			//curBall = nullptr;
+			curBall->Dropped();
+			//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "false");
 		}
 		//if not hold, pick up
 		else {
-			curBall->beingHeld = true;
+			//curBall->beingHeld = true;
+			curBall->Dropped();
 			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "true");
 			
 		}
