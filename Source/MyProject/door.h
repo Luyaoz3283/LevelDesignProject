@@ -44,6 +44,7 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 		class AmyGM* GM;
 
+	//components
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* doorMesh;
 	UPROPERTY(EditAnywhere)
@@ -52,7 +53,12 @@ public:
 		class UBoxComponent* enterTrigger;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneComponent* parent;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		class USpotLightComponent* light;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		USceneComponent* destination;
 
+	//FUNCTIONS
 	UFUNCTION()
 		void onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
@@ -85,8 +91,6 @@ public:
 	//set door color according to curDoor
 	void displayColor();
 	void switchColor ();
-	void resetColor();
-	void disable();
 	bool delayDoorStart;
 
 	//camera
@@ -99,4 +103,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UMaterial* noDisplayMat;
 	void projectcameraImage();
+	void turnOn();
+	void turnOff();
 };

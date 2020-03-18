@@ -49,17 +49,21 @@ public:
 		class UBoxComponent* buttonTrigger;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneComponent* parent;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		USceneComponent* plateOffSet;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		class USpotLightComponent* light;
 	//controller components
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-		UStaticMeshComponent* controllerMesh;
+		UStaticMeshComponent* plateMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-		class UBoxComponent* controllerTrigger;
+		class UBoxComponent* plateTrigger;
 	UPROPERTY(EditAnywhere)
 		class AcollectableBall* ball;
 	
-	//color
+	//variables
 	UPROPERTY(EditAnywhere)
-		TArray<TEnumAsByte<switchColorList>> colorList;
+		TEnumAsByte<switchColorList> SwitchColor;
 
 	//when press the switch
 	UFUNCTION()
@@ -73,9 +77,8 @@ public:
 	UPROPERTY(EditAnywhere)
 		TArray<Adoor*> controlList;
 
-	//press switch
-	void press();
 	void turnOn();
 	void turnOff();
+	void searchTarget();
 
 };

@@ -27,8 +27,11 @@ public:
 
 	//variables
 	bool beingHeld;
+	bool onGround;
 	APawn* theCharacter;
 	FVector origin;
+	UPROPERTY(EditAnywhere, Category = "Need To Set")
+		FVector downward;
 	//component
 	
 	//actors
@@ -51,6 +54,19 @@ public:
 	void resetLocation();
 	void PickedUp();
 	void Dropped();
+	void hitGround();
+
+
+
+private:
+	//variables
+	FVector start;
+	FVector end;
+
+	
+	FHitResult Hit;
+	FComponentQueryParams DefaultComponentQueryParams;
+	FCollisionResponseParams DefaultResponseParams;
 
 
 

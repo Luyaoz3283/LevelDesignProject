@@ -17,19 +17,18 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 	MYPROJECT_API UClass* Z_Construct_UClass_AmyGM();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_MyProject();
-	MYPROJECT_API UFunction* Z_Construct_UFunction_AmyGM_press();
-	MYPROJECT_API UClass* Z_Construct_UClass_Adoor_NoRegister();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_AmyGM_pressE();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 // End Cross Module References
 	void AmyGM::StaticRegisterNativesAmyGM()
 	{
 		UClass* Class = AmyGM::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "press", &AmyGM::execpress },
+			{ "pressE", &AmyGM::execpressE },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
-	struct Z_Construct_UFunction_AmyGM_press_Statics
+	struct Z_Construct_UFunction_AmyGM_pressE_Statics
 	{
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -37,18 +36,18 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AmyGM_press_Statics::Function_MetaDataParams[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AmyGM_pressE_Statics::Function_MetaDataParams[] = {
 		{ "Category", "test" },
 		{ "ModuleRelativePath", "myGM.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AmyGM_press_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AmyGM, nullptr, "press", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AmyGM_press_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AmyGM_press_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AmyGM_press()
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AmyGM_pressE_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AmyGM, nullptr, "pressE", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AmyGM_pressE_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AmyGM_pressE_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AmyGM_pressE()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AmyGM_press_Statics::FuncParams);
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AmyGM_pressE_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -64,11 +63,6 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_curDoorList_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_curDoorList;
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_curDoorList_Inner;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_parent_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_parent;
@@ -81,7 +75,7 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AmyGM_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AmyGM_press, "press" }, // 3475098317
+		{ &Z_Construct_UFunction_AmyGM_pressE, "pressE" }, // 3276133364
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AmyGM_Statics::Class_MetaDataParams[] = {
@@ -89,16 +83,6 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 		{ "ModuleRelativePath", "myGM.h" },
 	};
 #endif
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AmyGM_Statics::NewProp_curDoorList_MetaData[] = {
-		{ "Category", "myGM" },
-		{ "Comment", "//list or doors in the same room\n" },
-		{ "ModuleRelativePath", "myGM.h" },
-		{ "ToolTip", "list or doors in the same room" },
-	};
-#endif
-	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AmyGM_Statics::NewProp_curDoorList = { "curDoorList", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AmyGM, curDoorList), METADATA_PARAMS(Z_Construct_UClass_AmyGM_Statics::NewProp_curDoorList_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AmyGM_Statics::NewProp_curDoorList_MetaData)) };
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AmyGM_Statics::NewProp_curDoorList_Inner = { "curDoorList", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_Adoor_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AmyGM_Statics::NewProp_parent_MetaData[] = {
 		{ "Category", "myGM" },
@@ -108,8 +92,6 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AmyGM_Statics::NewProp_parent = { "parent", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AmyGM, parent), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AmyGM_Statics::NewProp_parent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AmyGM_Statics::NewProp_parent_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AmyGM_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AmyGM_Statics::NewProp_curDoorList,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AmyGM_Statics::NewProp_curDoorList_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AmyGM_Statics::NewProp_parent,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AmyGM_Statics::StaticCppClassTypeInfo = {
@@ -139,7 +121,7 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AmyGM, 1263794739);
+	IMPLEMENT_CLASS(AmyGM, 4138522716);
 	template<> MYPROJECT_API UClass* StaticClass<AmyGM>()
 	{
 		return AmyGM::StaticClass();

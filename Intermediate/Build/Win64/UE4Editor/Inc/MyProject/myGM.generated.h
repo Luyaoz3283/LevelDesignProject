@@ -13,30 +13,30 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define MYPROJECT_myGM_generated_h
 
-#define LevelDesignProject_Source_MyProject_myGM_h_16_SPARSE_DATA
-#define LevelDesignProject_Source_MyProject_myGM_h_16_RPC_WRAPPERS \
+#define LevelDesignProject_Source_MyProject_myGM_h_17_SPARSE_DATA
+#define LevelDesignProject_Source_MyProject_myGM_h_17_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execpress) \
+	DECLARE_FUNCTION(execpressE) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->press(); \
+		P_THIS->pressE(); \
 		P_NATIVE_END; \
 	}
 
 
-#define LevelDesignProject_Source_MyProject_myGM_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+#define LevelDesignProject_Source_MyProject_myGM_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execpress) \
+	DECLARE_FUNCTION(execpressE) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->press(); \
+		P_THIS->pressE(); \
 		P_NATIVE_END; \
 	}
 
 
-#define LevelDesignProject_Source_MyProject_myGM_h_16_INCLASS_NO_PURE_DECLS \
+#define LevelDesignProject_Source_MyProject_myGM_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAmyGM(); \
 	friend struct Z_Construct_UClass_AmyGM_Statics; \
@@ -45,7 +45,7 @@ public: \
 	DECLARE_SERIALIZER(AmyGM)
 
 
-#define LevelDesignProject_Source_MyProject_myGM_h_16_INCLASS \
+#define LevelDesignProject_Source_MyProject_myGM_h_17_INCLASS \
 private: \
 	static void StaticRegisterNativesAmyGM(); \
 	friend struct Z_Construct_UClass_AmyGM_Statics; \
@@ -54,7 +54,7 @@ public: \
 	DECLARE_SERIALIZER(AmyGM)
 
 
-#define LevelDesignProject_Source_MyProject_myGM_h_16_STANDARD_CONSTRUCTORS \
+#define LevelDesignProject_Source_MyProject_myGM_h_17_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AmyGM(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AmyGM) \
@@ -67,7 +67,7 @@ private: \
 public:
 
 
-#define LevelDesignProject_Source_MyProject_myGM_h_16_ENHANCED_CONSTRUCTORS \
+#define LevelDesignProject_Source_MyProject_myGM_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AmyGM(AmyGM&&); \
@@ -78,28 +78,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AmyGM); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AmyGM)
 
 
-#define LevelDesignProject_Source_MyProject_myGM_h_16_PRIVATE_PROPERTY_OFFSET
-#define LevelDesignProject_Source_MyProject_myGM_h_13_PROLOG
-#define LevelDesignProject_Source_MyProject_myGM_h_16_GENERATED_BODY_LEGACY \
+#define LevelDesignProject_Source_MyProject_myGM_h_17_PRIVATE_PROPERTY_OFFSET
+#define LevelDesignProject_Source_MyProject_myGM_h_14_PROLOG
+#define LevelDesignProject_Source_MyProject_myGM_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	LevelDesignProject_Source_MyProject_myGM_h_16_PRIVATE_PROPERTY_OFFSET \
-	LevelDesignProject_Source_MyProject_myGM_h_16_SPARSE_DATA \
-	LevelDesignProject_Source_MyProject_myGM_h_16_RPC_WRAPPERS \
-	LevelDesignProject_Source_MyProject_myGM_h_16_INCLASS \
-	LevelDesignProject_Source_MyProject_myGM_h_16_STANDARD_CONSTRUCTORS \
+	LevelDesignProject_Source_MyProject_myGM_h_17_PRIVATE_PROPERTY_OFFSET \
+	LevelDesignProject_Source_MyProject_myGM_h_17_SPARSE_DATA \
+	LevelDesignProject_Source_MyProject_myGM_h_17_RPC_WRAPPERS \
+	LevelDesignProject_Source_MyProject_myGM_h_17_INCLASS \
+	LevelDesignProject_Source_MyProject_myGM_h_17_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define LevelDesignProject_Source_MyProject_myGM_h_16_GENERATED_BODY \
+#define LevelDesignProject_Source_MyProject_myGM_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	LevelDesignProject_Source_MyProject_myGM_h_16_PRIVATE_PROPERTY_OFFSET \
-	LevelDesignProject_Source_MyProject_myGM_h_16_SPARSE_DATA \
-	LevelDesignProject_Source_MyProject_myGM_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	LevelDesignProject_Source_MyProject_myGM_h_16_INCLASS_NO_PURE_DECLS \
-	LevelDesignProject_Source_MyProject_myGM_h_16_ENHANCED_CONSTRUCTORS \
+	LevelDesignProject_Source_MyProject_myGM_h_17_PRIVATE_PROPERTY_OFFSET \
+	LevelDesignProject_Source_MyProject_myGM_h_17_SPARSE_DATA \
+	LevelDesignProject_Source_MyProject_myGM_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	LevelDesignProject_Source_MyProject_myGM_h_17_INCLASS_NO_PURE_DECLS \
+	LevelDesignProject_Source_MyProject_myGM_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

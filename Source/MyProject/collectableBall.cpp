@@ -4,6 +4,8 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/SphereComponent.h"
 #include "myGM.h"
+#include "Engine/Engine.h"
+#include "DrawDebugHelpers.h"
 #include "collectableBall.h"
 
 // Sets default values
@@ -40,6 +42,10 @@ void AcollectableBall::BeginPlay()
 	ballTrigger->OnComponentEndOverlap.AddDynamic(this, &AcollectableBall::OnOverlapEnd);
 	//initialize
 	origin = GetActorLocation();
+	//assume someone drop the ball at the beginning
+	beingHeld = true;
+	onGround = false;
+	Dropped();
 }
 
 // Called every frame
@@ -53,15 +59,30 @@ void AcollectableBall::Tick(float DeltaTime)
 		newLocation.X = newLocation.X + 100.f;
 		this->SetActorLocation(newLocation, false);
 	}
+
+	//ray cast
+	start = ballMesh->GetComponentLocation();
+	//downward.Z = ballTrigger->GetScaledSphereRadius() * -1;
+	end = start + downward;
+	if (!beingHeld && !onGround && GetWorld()->LineTraceSingleByChannel(Hit, start, end, ECC_Visibility, DefaultComponentQueryParams, DefaultResponseParams)) {
+		if (!Hit.GetActor()->ActorHasTag("ball")) {
+			hitGround();
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball hit object");
+		}
+		
+	}
 }
 
 void AcollectableBall::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	//add: player check
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "enter ball range");
 	MyGM->setCurBall(this);
 }
 
 void AcollectableBall::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "out ball range");
 	if (!beingHeld) {
 		MyGM->setCurBall(nullptr);
 	}
@@ -81,8 +102,22 @@ void AcollectableBall::PickedUp()
 //drop or pick up ball
 void AcollectableBall::Dropped()
 {
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball dropped");
+	if (onGround) {
+		onGround = false;
+	}
 	beingHeld = !beingHeld;
 	ballMesh->SetSimulatePhysics(beingHeld? false:true);
 	ballMesh->SetEnableGravity(beingHeld? false:true);
+	ballMesh->SetCollisionEnabled(beingHeld ? ECollisionEnabled::NoCollision : ECollisionEnabled::QueryAndPhysics);
+}
+
+void AcollectableBall::hitGround()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball hit ground");
+	onGround = true;
+	ballMesh->SetSimulatePhysics(false);
+	ballMesh->SetEnableGravity(false);
+	ballMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 }
 

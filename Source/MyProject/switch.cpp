@@ -4,6 +4,7 @@
 #include "switch.h"
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/SpotLightComponent.h"
 #include "collectableBall.h"
 #include "Components/SceneComponent.h"
 #include "myGM.h"
@@ -20,16 +21,21 @@ Aswitch::Aswitch()
 	buttonMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("buttonMesh"));
 	buttonTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("buttonTrigger"));
 	parent = CreateDefaultSubobject<USceneComponent>(TEXT("parentScene"));
+	plateOffSet = CreateDefaultSubobject<USceneComponent>(TEXT("plateOffSet"));
+	light = CreateDefaultSubobject<USpotLightComponent>(TEXT("light"));
 	RootComponent = parent;
 	//create controller components
-	controllerMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("controllerMesh"));
-	controllerTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("controllerTrigger"));
+	plateMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PlateMesh"));
+	plateTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("PlateTrigger"));
 	
 	//set components order
 	buttonMesh->SetupAttachment(parent);
-	controllerMesh->SetupAttachment(parent);
+	
+	plateOffSet->SetupAttachment(parent);
+	plateMesh->SetupAttachment(plateOffSet);
+	light->SetupAttachment(plateOffSet);
 	buttonTrigger->SetupAttachment(buttonMesh);
-	controllerTrigger->SetupAttachment(controllerMesh);
+	plateTrigger->SetupAttachment(plateOffSet);
 	
 	
 	
@@ -44,8 +50,8 @@ void Aswitch::BeginPlay()
 	//register to overlap event
 	buttonTrigger->OnComponentBeginOverlap.AddDynamic(this, &Aswitch::onOverlapBegin);
 	buttonTrigger->OnComponentEndOverlap.AddDynamic(this, &Aswitch::OnOverlapEnd);
-	controllerTrigger->OnComponentBeginOverlap.AddDynamic(this, &Aswitch::onOverlapBegin);
-	controllerTrigger->OnComponentEndOverlap.AddDynamic(this, &Aswitch::OnOverlapEnd);
+	plateTrigger->OnComponentBeginOverlap.AddDynamic(this, &Aswitch::onOverlapBegin);
+	plateTrigger->OnComponentEndOverlap.AddDynamic(this, &Aswitch::OnOverlapEnd);
 	//initialize
 	turnedOn = false;
 	ballInside = false;
@@ -75,7 +81,7 @@ void Aswitch::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherA
 		MyGM->setCurSwitch(this);
 	}
 	//if ball drop into the container, turn on doors
-	if (OverlappedComp->ComponentHasTag("controller") && OtherActor->ActorHasTag("ball") && turnedOn == false && OtherActor == ball) {
+	if (OverlappedComp->ComponentHasTag("plate") && OtherActor->ActorHasTag("ball") && turnedOn == false && OtherActor == ball) {
 		ballInside = true;
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball inside");
 	}
@@ -92,7 +98,7 @@ void Aswitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherAct
 		MyGM->setCurSwitch(nullptr);
 	}
 	//if ball disappear from the container -> turn off
-	if (OverlappedComp->ComponentHasTag("controller") && OtherActor->ActorHasTag("ball") && OtherActor == ball) {
+	if (OverlappedComp->ComponentHasTag("plate") && OtherActor->ActorHasTag("ball") && OtherActor == ball) {
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball out");
 		
 		turnOff();
@@ -100,20 +106,18 @@ void Aswitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherAct
 	}
 }
 
-//when press, switch color of the door being controlled
-void Aswitch::press()
-{
-	
-}
 
 void Aswitch::turnOn()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "turn on");
 	turnedOn = true;
-	//turn on light
+	//turn on door
 	for (int i = 0; i < controlList.Num(); i++) {
-		controlList[i]->resetColor();
+		controlList[i]->turnOn();
 	}
+	//turn on light
+	light->SetVisibility(true,true);
+	searchTarget();
 }
 
 void Aswitch::turnOff()
@@ -121,9 +125,32 @@ void Aswitch::turnOff()
 	ballInside = false;
 	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "turn off");
 	turnedOn = false;
-	//turn off light
+	//turn off door
 	for (int i = 0; i < controlList.Num(); i++) {
-		controlList[i]->disable();
+		controlList[i]->turnOff();
+	}
+	//turn off light
+	light->SetVisibility(false, false);
+}
+
+void Aswitch::searchTarget()
+{
+	for (int i = 0; i < controlList.Num(); i++) {
+		controlList[i]->targetDoor = NULL;
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "current door" + this->GetFName().ToString());
+		for (int j = 0; j < controlList.Num(); j++) {
+			if (controlList[i] != controlList[j] && controlList[i]->curColor == controlList[j]->curColor) {
+				controlList[i]->targetDoor = controlList[j];
+				//get target image
+				//controlList[i]->screen->SetMaterial(0, controlList[i]->targetDoor->renderMat);
+				break;
+			}
+
+		}
+		/*if (controlList[i]->targetDoor == NULL) {
+			controlList[i]->screen->SetMaterial(0, controlList[i]->noDisplayMat);
+
+		}*/
 	}
 }
 

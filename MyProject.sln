@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28315.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{35458EE7-1C64-4AC3-AD5F-8C4F56198FF0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{082B9314-213A-4573-A460-A723AC5C06B9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{D1FFDAE3-42B7-42FF-AEE8-734B824BE203}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{4EF3E5EF-4734-421B-B024-51D6B0CCB737}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UE4", "Intermediate\ProjectFiles\UE4.vcxproj", "{F485F71E-16E3-44CD-BBAD-5FC40BEB431C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyProject", "Intermediate\ProjectFiles\MyProject.vcxproj", "{BEAF52DB-396F-4165-83F0-29BA353870E2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualizers", "Visualizers", "{34DAB244-A153-4D7F-A0F7-EB39077DA30E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualizers", "Visualizers", "{5F0C391A-47A7-4C7B-927D-292EF441EE42}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\Epic Game\Unreal 4\UE_4.24\Engine\Extras\VisualStudioDebugging\UE4.natvis = ..\..\Epic Game\Unreal 4\UE_4.24\Engine\Extras\VisualStudioDebugging\UE4.natvis
+		D:\Epic Games\UE_4.24\Engine\Extras\VisualStudioDebugging\UE4.natvis = D:\Epic Games\UE_4.24\Engine\Extras\VisualStudioDebugging\UE4.natvis
 	EndProjectSection
 EndProject
 Global
@@ -63,7 +63,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F485F71E-16E3-44CD-BBAD-5FC40BEB431C} = {35458EE7-1C64-4AC3-AD5F-8C4F56198FF0}
-		{BEAF52DB-396F-4165-83F0-29BA353870E2} = {D1FFDAE3-42B7-42FF-AEE8-734B824BE203}
+		{F485F71E-16E3-44CD-BBAD-5FC40BEB431C} = {082B9314-213A-4573-A460-A723AC5C06B9}
+		{BEAF52DB-396F-4165-83F0-29BA353870E2} = {4EF3E5EF-4734-421B-B024-51D6B0CCB737}
 	EndGlobalSection
 EndGlobal

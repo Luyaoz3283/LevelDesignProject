@@ -3,6 +3,7 @@
 
 #include "myGM.h"
 #include "door.h"
+
 #include "Engine/Engine.h"
 // Sets default values
 AmyGM::AmyGM()
@@ -28,64 +29,69 @@ void AmyGM::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (delayDoorStart) {
+	/*if (delayDoorStart) {
 		searchTarget();
 		delayDoorStart = false;
-	}
+	}*/
 }
 
-void AmyGM::searchTarget()
-{
-	int32 doorAmount = curDoorList.Num();
-	for (int i = 0; i < doorAmount; i++) {
-		curDoorList[i]->targetDoor = NULL;
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "current door" + this->GetFName().ToString());
-		for (int j = 0; j < doorAmount; j++) {
-			if (curDoorList[i] != curDoorList[j] && curDoorList[i]->curColor == curDoorList[j]->curColor) {
-				GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "set");
-				curDoorList[i]->targetDoor = curDoorList[j];
-				//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, targetDoor->GetFName().ToString());
-				//get target image
-				curDoorList[i]->screen->SetMaterial(0, curDoorList[i]->targetDoor->renderMat);
-				break;
-			}
+//void AmyGM::searchTarget()
+//{
+//	int32 doorAmount = curDoorList.Num();
+//	for (int i = 0; i < doorAmount; i++) {
+//		curDoorList[i]->targetDoor = NULL;
+//		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "current door" + this->GetFName().ToString());
+//		for (int j = 0; j < doorAmount; j++) {
+//			if (curDoorList[i] != curDoorList[j] && curDoorList[i]->curColor == curDoorList[j]->curColor) {
+//				curDoorList[i]->targetDoor = curDoorList[j];
+//				//get target image
+//				curDoorList[i]->screen->SetMaterial(0, curDoorList[i]->targetDoor->renderMat);
+//				break;
+//			}
+//
+//		}
+//		if (curDoorList[i]->targetDoor == NULL) {
+//			curDoorList[i]->screen->SetMaterial(0, curDoorList[i]->noDisplayMat);
+//
+//		}
+//	}
+//	
+//}
 
-		}
-		if (curDoorList[i]->targetDoor == NULL) {
-			curDoorList[i]->screen->SetMaterial(0, curDoorList[i]->noDisplayMat);
-
-		}
-	}
-	
-}
-
-void AmyGM::press()
+void AmyGM::pressE()
 {
 	//switch color
 	if (curSwitch != nullptr && curSwitch->turnedOn) {
 		
 		for (int i = 0; i < curSwitch->controlList.Num(); i++) {
 			curSwitch->controlList[i]->switchColor();
+			
 		}
+		curSwitch->searchTarget();
+
 		//int32 doorAmount = MyGM->curDoorList.Num();
-		searchTarget();
+		
 	}
 	//list ball
 	if (curBall != nullptr) {
 		//if currently hold, drop
 		if (curBall->beingHeld == true) {
 			curBall->Dropped();
-			//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "false");
 		}
 		//if not hold, pick up
 		else {
 			//curBall->beingHeld = true;
 			curBall->Dropped();
-			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "true");
 			
 		}
 	}
-	
+	//regular switch
+	if (curRegSwitch != nullptr) {
+		if (!curRegSwitch->hasTurnedOn()) {
+			curRegSwitch->turnOn();
+		}
+		
+	}
 }
 
 void AmyGM::setCurSwitch(Aswitch* input)
@@ -98,4 +104,10 @@ void AmyGM::setCurBall(AcollectableBall* input)
 {
 	curBall = input;
 }
+
+void AmyGM::setCurRegSwitch(AregularSwitch* input)
+{
+	curRegSwitch = input;
+}
+
 

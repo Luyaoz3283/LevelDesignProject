@@ -26,6 +26,7 @@ void EmptyLinkFunctionForGeneratedCodecollectableBall() {}
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	MYPROJECT_API UClass* Z_Construct_UClass_AmyGM_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 // End Cross Module References
 	void AcollectableBall::StaticRegisterNativesAcollectableBall()
 	{
@@ -204,6 +205,10 @@ void EmptyLinkFunctionForGeneratedCodecollectableBall() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MyGM_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_MyGM;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_downward_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_downward;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -255,11 +260,19 @@ void EmptyLinkFunctionForGeneratedCodecollectableBall() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AcollectableBall_Statics::NewProp_MyGM = { "MyGM", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AcollectableBall, MyGM), Z_Construct_UClass_AmyGM_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AcollectableBall_Statics::NewProp_MyGM_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AcollectableBall_Statics::NewProp_MyGM_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AcollectableBall_Statics::NewProp_downward_MetaData[] = {
+		{ "Category", "Need To Set" },
+		{ "ModuleRelativePath", "collectableBall.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AcollectableBall_Statics::NewProp_downward = { "downward", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AcollectableBall, downward), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AcollectableBall_Statics::NewProp_downward_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AcollectableBall_Statics::NewProp_downward_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AcollectableBall_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_parent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_ballTrigger,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_ballMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_MyGM,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_downward,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AcollectableBall_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AcollectableBall>::IsAbstract,
@@ -288,7 +301,7 @@ void EmptyLinkFunctionForGeneratedCodecollectableBall() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AcollectableBall, 3013574458);
+	IMPLEMENT_CLASS(AcollectableBall, 74924073);
 	template<> MYPROJECT_API UClass* StaticClass<AcollectableBall>()
 	{
 		return AcollectableBall::StaticClass();

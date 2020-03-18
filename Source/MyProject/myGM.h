@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "door.h"
 #include "switch.h"
+#include "regularSwitch.h"
 #include "collectableBall.h"
 #include "myGM.generated.h"
 
@@ -33,19 +34,23 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneComponent* parent;
 	//list or doors in the same room
-	UPROPERTY(EditAnywhere)
-		TArray<Adoor*> curDoorList;
+	/*UPROPERTY(EditAnywhere)
+		TArray<Adoor*> curDoorList;*/
 	//search target door for each door in the list
-	void searchTarget();
 	int delayDoorStart;
 
 	//interact with switch
 	bool inSwitchZone;
 	UFUNCTION(BlueprintCallable, Category = "test")
-	void press();
+	void pressE();
+	//variables
+	//change: move to private
 	Aswitch* curSwitch;
 	AcollectableBall* curBall;
+	AregularSwitch* curRegSwitch;
+	//functions
 	void setCurSwitch(Aswitch* input);
 	void setCurBall(AcollectableBall* input);
+	void setCurRegSwitch(AregularSwitch* input);
 
 };
