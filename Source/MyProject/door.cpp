@@ -55,19 +55,10 @@ void Adoor::BeginPlay()
 		colorIndex = 0;
 		curColor = colorList[0];
 		projectcameraImage();
-		//initilize
-		turnOff();
 	}
-
-
-
-
-	//delayDoorStart = true;
-	//project camera image to texture
-	
-	
-	
-	
+	//initilize
+	turnOff();
+	targetCharacter = GetWorld()->GetFirstPlayerController()->GetPawn();
 }
 
 // Called every frame
@@ -87,8 +78,6 @@ void Adoor::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAct
 	
 	if (targetDoor != NULL) {
 		FVector ActorLocation = targetDoor->GetActorLocation();
-		//ActorLocation.Y -= 100.f;
-		//ActorLocation.X += 100.f;
 		FRotator testRotationVector(0.f, 0.f, 0.f);
 		// Set the location- this will blindly place the actor at the given location  
 		FVector direction = destination->GetComponentLocation() - doorMesh->GetComponentLocation();
@@ -121,18 +110,6 @@ void Adoor::displayColor()
 
 void Adoor::switchColor()
 {
-	/*if (curColor == color1) {
-		curColor = color2;
-	}
-	else if (curColor == color2) {
-		curColor = color3;
-	}
-	else if (curColor == color3) {
-		curColor = color4;
-	}
-	else if (curColor == color4) {
-		curColor = color1;
-	}*/
 	colorIndex++;
 	if (colorIndex >= colorList.Num()) {
 		colorIndex = 0;

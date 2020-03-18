@@ -55,6 +55,7 @@ void AregularSwitch::Tick(float DeltaTime)
 
 void AregularSwitch::turnOn()
 {
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "reg switch turned on");
 	turnedOn = true;
 	//turn on gates
 	for (auto& compo : gateOpen) {
@@ -68,6 +69,7 @@ void AregularSwitch::turnOn()
 }
 
 void AregularSwitch::turnOff() {
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "reg switch turned off");
 	turnedOn = false;
 	
 }
@@ -83,7 +85,7 @@ void AregularSwitch::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor*
 	if (OtherActor->ActorHasTag("player")) {
 		//chaInside = true;
 		theGM->setCurRegSwitch(this);
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player inside");
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player inside reg switch");
 	}
 }
 
@@ -92,7 +94,7 @@ void AregularSwitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* O
 	if (OtherActor->ActorHasTag("player")) {
 		//chaInside = false;
 		theGM->setCurRegSwitch(nullptr);
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player out");
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player out reg switch");
 	}
 }
 

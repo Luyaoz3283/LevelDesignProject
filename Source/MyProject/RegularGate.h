@@ -29,7 +29,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneComponent* parent;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-		USceneComponent* gateDestination;
+		USceneComponent* meshOffset;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
 		FVector moveUpward;
 

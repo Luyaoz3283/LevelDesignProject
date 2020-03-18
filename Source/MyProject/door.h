@@ -62,36 +62,25 @@ public:
 	UFUNCTION()
 		void onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
-	//
-	UPROPERTY(EditAnywhere)
-		Adoor* targetDoor;
-
-	UPROPERTY(EditAnywhere)
-		APawn* targetCharacter;
-
-	//door materials
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TArray<TEnumAsByte<doorColorStock>> colorList;
+	//variables
+	Adoor* targetDoor;
+	APawn* targetCharacter;
 	int colorIndex;
+	TEnumAsByte<doorColorStock> curColor;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TEnumAsByte<doorColorStock> curColor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	//custom variables
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
+		TArray<TEnumAsByte<doorColorStock>> colorList;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
 		UMaterial* yellowMaterial;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
 		UMaterial* blueMaterial;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
 		UMaterial* redMaterial;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
 		UMaterial* greenMaterial;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
 		UMaterial* greyMaterial;
-
-	
-	//set door color according to curDoor
-	void displayColor();
-	void switchColor ();
-	bool delayDoorStart;
 
 	//camera
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -102,7 +91,16 @@ public:
 		UMaterial* renderMat;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UMaterial* noDisplayMat;
+
+
+	//set door color according to curDoor
+	void displayColor();
+	void switchColor ();
+	bool delayDoorStart;
 	void projectcameraImage();
 	void turnOn();
 	void turnOff();
+
+	
+	
 };

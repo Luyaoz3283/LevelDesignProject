@@ -39,9 +39,9 @@ void EmptyLinkFunctionForGeneratedCodeRegularGate() {}
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_moveUpward;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_gateDestination_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_meshOffset_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_gateDestination;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_meshOffset;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_parent_MetaData[];
 #endif
@@ -72,13 +72,13 @@ void EmptyLinkFunctionForGeneratedCodeRegularGate() {}
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ARegularGate_Statics::NewProp_moveUpward = { "moveUpward", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARegularGate, moveUpward), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ARegularGate_Statics::NewProp_moveUpward_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARegularGate_Statics::NewProp_moveUpward_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARegularGate_Statics::NewProp_gateDestination_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARegularGate_Statics::NewProp_meshOffset_MetaData[] = {
 		{ "Category", "RegularGate" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "RegularGate.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARegularGate_Statics::NewProp_gateDestination = { "gateDestination", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARegularGate, gateDestination), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARegularGate_Statics::NewProp_gateDestination_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARegularGate_Statics::NewProp_gateDestination_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARegularGate_Statics::NewProp_meshOffset = { "meshOffset", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARegularGate, meshOffset), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARegularGate_Statics::NewProp_meshOffset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARegularGate_Statics::NewProp_meshOffset_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARegularGate_Statics::NewProp_parent_MetaData[] = {
 		{ "Category", "RegularGate" },
@@ -99,7 +99,7 @@ void EmptyLinkFunctionForGeneratedCodeRegularGate() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARegularGate_Statics::NewProp_mesh = { "mesh", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARegularGate, mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARegularGate_Statics::NewProp_mesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARegularGate_Statics::NewProp_mesh_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARegularGate_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARegularGate_Statics::NewProp_moveUpward,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARegularGate_Statics::NewProp_gateDestination,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARegularGate_Statics::NewProp_meshOffset,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARegularGate_Statics::NewProp_parent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARegularGate_Statics::NewProp_mesh,
 	};
@@ -130,7 +130,7 @@ void EmptyLinkFunctionForGeneratedCodeRegularGate() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARegularGate, 3155215170);
+	IMPLEMENT_CLASS(ARegularGate, 119213344);
 	template<> MYPROJECT_API UClass* StaticClass<ARegularGate>()
 	{
 		return ARegularGate::StaticClass();

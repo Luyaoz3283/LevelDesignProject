@@ -62,17 +62,13 @@ void AmyGM::pressE()
 {
 	//switch color
 	if (curSwitch != nullptr && curSwitch->turnedOn) {
-		
 		for (int i = 0; i < curSwitch->controlList.Num(); i++) {
 			curSwitch->controlList[i]->switchColor();
 			
 		}
-		curSwitch->searchTarget();
-
-		//int32 doorAmount = MyGM->curDoorList.Num();
-		
+		curSwitch->searchTarget();	
 	}
-	//list ball
+	//lift ball
 	if (curBall != nullptr) {
 		//if currently hold, drop
 		if (curBall->beingHeld == true) {

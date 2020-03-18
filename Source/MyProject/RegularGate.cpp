@@ -13,10 +13,10 @@ ARegularGate::ARegularGate()
 	//create components
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("mesh"));
 	parent = CreateDefaultSubobject<USceneComponent>(TEXT("parent"));
-	gateDestination = CreateDefaultSubobject<USceneComponent>(TEXT("destination"));
+	meshOffset = CreateDefaultSubobject<USceneComponent>(TEXT("meshOffset"));
 	RootComponent = parent;
-	mesh->SetupAttachment(parent);
-	gateDestination->SetupAttachment(parent);
+	meshOffset->SetupAttachment(parent);
+	mesh->SetupAttachment(meshOffset);
 }
 
 // Called when the game starts or when spawned

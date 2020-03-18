@@ -45,6 +45,12 @@ Aswitch::Aswitch()
 void Aswitch::BeginPlay()
 {
 	Super::BeginPlay();
+	//debug
+	if (ball == nullptr) {
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "please specify associated ball:" + ball->GetFName().ToString());
+	}
+
+
 	//create ball
 	ball->theSwitch = this;
 	//register to overlap event
@@ -55,9 +61,27 @@ void Aswitch::BeginPlay()
 	//initialize
 	turnedOn = false;
 	ballInside = false;
-	//get GM
-	//UWorld* World = GEngine->GetWorldContexts()[0].World();
-	//MyGM = UGameplayStatics::GetActorOfClass(World, TSubclassOf<AmyGM> myGM);
+	//initialize color and material
+	switch (SwitchColor)
+	{
+	case switchColorList::blueSwitch:
+		//change plate light
+		light->LightColor = lightColorBlue;
+		//change door light
+		for (auto& compo : controlList) {
+			compo->light->LightColor = lightColorBlue;
+		}
+		break;
+	case switchColorList::orangeSwitch:
+		light->LightColor = lightColorOrange;
+		for (auto& compo : controlList) {
+			compo->light->LightColor = lightColorOrange;
+		}
+		break;
+	}
+	
+	
+	
 	
 }
 
@@ -65,25 +89,23 @@ void Aswitch::BeginPlay()
 void Aswitch::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 	if (ballInside && ball->beingHeld == false && turnedOn == false) {
 		turnOn();
-		
 	}
 }
 
 void Aswitch::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "begin");
-	//switch color
-	if (OverlappedComp->ComponentHasTag("button")) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "button");
+	
+	//update curSwitch when player enters
+	if (OverlappedComp->ComponentHasTag("button") && OtherActor->ActorHasTag("player")) {
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player enter switch");
 		MyGM->setCurSwitch(this);
 	}
 	//if ball drop into the container, turn on doors
-	if (OverlappedComp->ComponentHasTag("plate") && OtherActor->ActorHasTag("ball") && turnedOn == false && OtherActor == ball) {
+	if (OverlappedComp->ComponentHasTag("plate") &&  OtherActor == ball && turnedOn == false) {
 		ballInside = true;
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball inside");
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball inside plate");
 	}
 	
 	//press();
@@ -91,25 +113,24 @@ void Aswitch::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherA
 
 void Aswitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "end");
 	
-	if (OverlappedComp->ComponentHasTag("button")) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "button");
+	//update curSwitch when player leaves
+	if (OverlappedComp->ComponentHasTag("button") && OtherActor->ActorHasTag("player")) {
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player out switch");
 		MyGM->setCurSwitch(nullptr);
 	}
 	//if ball disappear from the container -> turn off
-	if (OverlappedComp->ComponentHasTag("plate") && OtherActor->ActorHasTag("ball") && OtherActor == ball) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball out");
-		
+	if (OverlappedComp->ComponentHasTag("plate") && OtherActor == ball && turnedOn == true) {
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball out plate");
+		ballInside = false;
 		turnOff();
-
 	}
 }
 
 
 void Aswitch::turnOn()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "turn on");
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "switch turn on");
 	turnedOn = true;
 	//turn on door
 	for (int i = 0; i < controlList.Num(); i++) {
@@ -122,8 +143,7 @@ void Aswitch::turnOn()
 
 void Aswitch::turnOff()
 {
-	ballInside = false;
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "turn off");
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "switch turn off");
 	turnedOn = false;
 	//turn off door
 	for (int i = 0; i < controlList.Num(); i++) {

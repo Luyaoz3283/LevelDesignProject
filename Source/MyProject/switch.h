@@ -53,17 +53,23 @@ public:
 		USceneComponent* plateOffSet;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		class USpotLightComponent* light;
-	//controller components
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* plateMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		class UBoxComponent* plateTrigger;
-	UPROPERTY(EditAnywhere)
-		class AcollectableBall* ball;
+	
 	
 	//variables
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Need To Set")
+		class AcollectableBall* ball;
+	UPROPERTY(EditAnywhere, Category = "Need To Set")
 		TEnumAsByte<switchColorList> SwitchColor;
+	UPROPERTY(EditAnywhere, Category = "Need To Set")
+		FColor lightColorBlue;
+	UPROPERTY(EditAnywhere, Category = "Need To Set")
+		FColor lightColorOrange;
+	UPROPERTY(EditAnywhere, Category = "Need To Set")
+		TArray<Adoor*> controlList;
 
 	//when press the switch
 	UFUNCTION()
@@ -74,8 +80,7 @@ public:
 
 
 	//list of doors under control
-	UPROPERTY(EditAnywhere)
-		TArray<Adoor*> controlList;
+	
 
 	void turnOn();
 	void turnOff();
