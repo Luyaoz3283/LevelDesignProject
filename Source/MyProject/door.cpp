@@ -8,6 +8,7 @@
 #include "Components/SceneCaptureComponent2D.h"
 #include "Components/SpotLightComponent.h"
 #include "Engine/Engine.h"
+#include "Kismet/GameplayStatics.h"
 #include "myGM.h"
 
 
@@ -46,7 +47,9 @@ Adoor::Adoor()
 void Adoor::BeginPlay()
 {
 	Super::BeginPlay();
-	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, *GETENUMSTRING("doorColorStock", color1));
+	//
+	AActor* a = UGameplayStatics::GetActorOfClass(GetWorld(), AmyGM::StaticClass());
+	GM = Cast<AmyGM>(a);
 	//debug
 	if (colorList.Num() == 0) {
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "need to specify door color!");
@@ -56,8 +59,12 @@ void Adoor::BeginPlay()
 		curColor = colorList[0];
 		projectcameraImage();
 	}
-	//initilize
-	turnOff();
+	//check door type
+	if (directDoor != nullptr) {
+		turnOn(false);
+	}
+	
+	
 	targetCharacter = GetWorld()->GetFirstPlayerController()->GetPawn();
 }
 
@@ -65,19 +72,14 @@ void Adoor::BeginPlay()
 void Adoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	//delay start search
-	/*if (delayDoorStart) {
-		GM->searchTarget();
-		delayDoorStart = false;
-	}*/
 
 }
 
 void Adoor::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	
-	if (targetDoor != NULL) {
-		FVector ActorLocation = targetDoor->GetActorLocation();
+	if (directDoor != NULL) {
+		FVector ActorLocation = directDoor->GetActorLocation();
 		FRotator testRotationVector(0.f, 0.f, 0.f);
 		// Set the location- this will blindly place the actor at the given location  
 		FVector direction = destination->GetComponentLocation() - doorMesh->GetComponentLocation();
@@ -124,19 +126,25 @@ void Adoor::projectcameraImage()
 	viewCaptureCam->TextureTarget = renderTex;
 }
 
-void Adoor::turnOn()
+void Adoor::turnOn(bool lightOn)
 {
-	//turn on light
-	light->SetVisibility(true,true);
+	//turn on light if it's direct connect door
+	if (lightOn) {
+		light->SetVisibility(true, true);
+	}
+	
 	//turn on door color
 	colorIndex = 0;
 	curColor = colorList[colorIndex];
 	displayColor();
 }
 
-void Adoor::turnOff()
+void Adoor::turnOff(bool lightOn)
 {
-	light->SetVisibility(false, false);
+	if (lightOn) {
+		light->SetVisibility(false, false);
+	}
+	
 	doorMesh->SetMaterial(0, greyMaterial);
 }
 

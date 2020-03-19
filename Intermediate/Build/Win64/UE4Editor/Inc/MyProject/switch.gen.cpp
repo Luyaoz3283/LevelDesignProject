@@ -13,8 +13,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeswitch() {}
 // Cross Module References
-	MYPROJECT_API UEnum* Z_Construct_UEnum_MyProject_switchColorList();
+	MYPROJECT_API UEnum* Z_Construct_UEnum_MyProject_connectTypeList();
 	UPackage* Z_Construct_UPackage__Script_MyProject();
+	MYPROJECT_API UEnum* Z_Construct_UEnum_MyProject_switchColorList();
 	MYPROJECT_API UClass* Z_Construct_UClass_Aswitch_NoRegister();
 	MYPROJECT_API UClass* Z_Construct_UClass_Aswitch();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
@@ -28,10 +29,65 @@ void EmptyLinkFunctionForGeneratedCodeswitch() {}
 	MYPROJECT_API UClass* Z_Construct_UClass_AcollectableBall_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_USpotLightComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UPointLightComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	MYPROJECT_API UClass* Z_Construct_UClass_AmyGM_NoRegister();
 // End Cross Module References
+	static UEnum* connectTypeList_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_MyProject_connectTypeList, Z_Construct_UPackage__Script_MyProject(), TEXT("connectTypeList"));
+		}
+		return Singleton;
+	}
+	template<> MYPROJECT_API UEnum* StaticEnum<connectTypeList>()
+	{
+		return connectTypeList_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_connectTypeList(connectTypeList_StaticEnum, TEXT("/Script/MyProject"), TEXT("connectTypeList"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_MyProject_connectTypeList_Hash() { return 4274924144U; }
+	UEnum* Z_Construct_UEnum_MyProject_connectTypeList()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_MyProject();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("connectTypeList"), 0, Get_Z_Construct_UEnum_MyProject_connectTypeList_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "plateOnly", (int64)plateOnly },
+				{ "switchOnly", (int64)switchOnly },
+				{ "Both", (int64)Both },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "Both.Name", "Both" },
+				{ "ModuleRelativePath", "switch.h" },
+				{ "plateOnly.Name", "plateOnly" },
+				{ "switchOnly.Name", "switchOnly" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_MyProject,
+				nullptr,
+				"connectTypeList",
+				"connectTypeList",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::Regular,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 	static UEnum* switchColorList_StaticEnum()
 	{
 		static UEnum* Singleton = nullptr;
@@ -249,6 +305,10 @@ void EmptyLinkFunctionForGeneratedCodeswitch() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_connectType_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_connectType;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_controlList_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_controlList;
@@ -266,9 +326,9 @@ void EmptyLinkFunctionForGeneratedCodeswitch() {}
 #endif
 		static const UE4CodeGen_Private::FBytePropertyParams NewProp_SwitchColor;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ball_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ballIfHasPlate_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ball;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ballIfHasPlate;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_plateTrigger_MetaData[];
 #endif
@@ -278,9 +338,13 @@ void EmptyLinkFunctionForGeneratedCodeswitch() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_plateMesh;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_light_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ButtonLight_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_light;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ButtonLight;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_plateLight_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_plateLight;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_plateOffSet_MetaData[];
 #endif
@@ -320,6 +384,13 @@ void EmptyLinkFunctionForGeneratedCodeswitch() {}
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Aswitch_Statics::NewProp_connectType_MetaData[] = {
+		{ "Category", "Need To Set" },
+		{ "ModuleRelativePath", "switch.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_Aswitch_Statics::NewProp_connectType = { "connectType", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Aswitch, connectType), Z_Construct_UEnum_MyProject_connectTypeList, METADATA_PARAMS(Z_Construct_UClass_Aswitch_Statics::NewProp_connectType_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Aswitch_Statics::NewProp_connectType_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Aswitch_Statics::NewProp_controlList_MetaData[] = {
 		{ "Category", "Need To Set" },
 		{ "ModuleRelativePath", "switch.h" },
@@ -349,14 +420,14 @@ void EmptyLinkFunctionForGeneratedCodeswitch() {}
 #endif
 	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_Aswitch_Statics::NewProp_SwitchColor = { "SwitchColor", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Aswitch, SwitchColor), Z_Construct_UEnum_MyProject_switchColorList, METADATA_PARAMS(Z_Construct_UClass_Aswitch_Statics::NewProp_SwitchColor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Aswitch_Statics::NewProp_SwitchColor_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Aswitch_Statics::NewProp_ball_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Aswitch_Statics::NewProp_ballIfHasPlate_MetaData[] = {
 		{ "Category", "Need To Set" },
 		{ "Comment", "//variables\n" },
 		{ "ModuleRelativePath", "switch.h" },
 		{ "ToolTip", "variables" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Aswitch_Statics::NewProp_ball = { "ball", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Aswitch, ball), Z_Construct_UClass_AcollectableBall_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Aswitch_Statics::NewProp_ball_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Aswitch_Statics::NewProp_ball_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Aswitch_Statics::NewProp_ballIfHasPlate = { "ballIfHasPlate", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Aswitch, ballIfHasPlate), Z_Construct_UClass_AcollectableBall_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Aswitch_Statics::NewProp_ballIfHasPlate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Aswitch_Statics::NewProp_ballIfHasPlate_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Aswitch_Statics::NewProp_plateTrigger_MetaData[] = {
 		{ "Category", "switch" },
@@ -374,13 +445,21 @@ void EmptyLinkFunctionForGeneratedCodeswitch() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Aswitch_Statics::NewProp_plateMesh = { "plateMesh", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Aswitch, plateMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Aswitch_Statics::NewProp_plateMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Aswitch_Statics::NewProp_plateMesh_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Aswitch_Statics::NewProp_light_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Aswitch_Statics::NewProp_ButtonLight_MetaData[] = {
 		{ "Category", "switch" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "switch.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Aswitch_Statics::NewProp_light = { "light", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Aswitch, light), Z_Construct_UClass_USpotLightComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Aswitch_Statics::NewProp_light_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Aswitch_Statics::NewProp_light_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Aswitch_Statics::NewProp_ButtonLight = { "ButtonLight", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Aswitch, ButtonLight), Z_Construct_UClass_UPointLightComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Aswitch_Statics::NewProp_ButtonLight_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Aswitch_Statics::NewProp_ButtonLight_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Aswitch_Statics::NewProp_plateLight_MetaData[] = {
+		{ "Category", "switch" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "switch.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Aswitch_Statics::NewProp_plateLight = { "plateLight", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Aswitch, plateLight), Z_Construct_UClass_UPointLightComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Aswitch_Statics::NewProp_plateLight_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Aswitch_Statics::NewProp_plateLight_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Aswitch_Statics::NewProp_plateOffSet_MetaData[] = {
 		{ "Category", "switch" },
@@ -425,15 +504,17 @@ void EmptyLinkFunctionForGeneratedCodeswitch() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Aswitch_Statics::NewProp_MyGM = { "MyGM", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Aswitch, MyGM), Z_Construct_UClass_AmyGM_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Aswitch_Statics::NewProp_MyGM_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Aswitch_Statics::NewProp_MyGM_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_Aswitch_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_connectType,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_controlList,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_controlList_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_lightColorOrange,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_lightColorBlue,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_SwitchColor,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_ball,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_ballIfHasPlate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_plateTrigger,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_plateMesh,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_light,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_ButtonLight,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_plateLight,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_plateOffSet,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_parent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Aswitch_Statics::NewProp_buttonTrigger,
@@ -467,7 +548,7 @@ void EmptyLinkFunctionForGeneratedCodeswitch() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(Aswitch, 3092364520);
+	IMPLEMENT_CLASS(Aswitch, 242122362);
 	template<> MYPROJECT_API UClass* StaticClass<Aswitch>()
 	{
 		return Aswitch::StaticClass();

@@ -5,6 +5,7 @@
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/SpotLightComponent.h"
+#include "Components/PointLightComponent.h"
 #include "collectableBall.h"
 #include "Components/SceneComponent.h"
 #include "myGM.h"
@@ -22,7 +23,8 @@ Aswitch::Aswitch()
 	buttonTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("buttonTrigger"));
 	parent = CreateDefaultSubobject<USceneComponent>(TEXT("parentScene"));
 	plateOffSet = CreateDefaultSubobject<USceneComponent>(TEXT("plateOffSet"));
-	light = CreateDefaultSubobject<USpotLightComponent>(TEXT("light"));
+	plateLight = CreateDefaultSubobject<UPointLightComponent>(TEXT("plateLight"));
+	ButtonLight = CreateDefaultSubobject<UPointLightComponent>(TEXT("buttonLight"));
 	RootComponent = parent;
 	//create controller components
 	plateMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PlateMesh"));
@@ -30,12 +32,12 @@ Aswitch::Aswitch()
 	
 	//set components order
 	buttonMesh->SetupAttachment(parent);
-	
 	plateOffSet->SetupAttachment(parent);
 	plateMesh->SetupAttachment(plateOffSet);
-	light->SetupAttachment(plateOffSet);
+	plateLight->SetupAttachment(plateOffSet);
 	buttonTrigger->SetupAttachment(buttonMesh);
 	plateTrigger->SetupAttachment(plateOffSet);
+	ButtonLight->SetupAttachment(buttonMesh);
 	
 	
 	
@@ -45,19 +47,18 @@ Aswitch::Aswitch()
 void Aswitch::BeginPlay()
 {
 	Super::BeginPlay();
-	//debug
-	if (ball == nullptr) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "please specify associated ball:" + ball->GetFName().ToString());
-	}
-
-
-	//create ball
-	ball->theSwitch = this;
 	//register to overlap event
 	buttonTrigger->OnComponentBeginOverlap.AddDynamic(this, &Aswitch::onOverlapBegin);
 	buttonTrigger->OnComponentEndOverlap.AddDynamic(this, &Aswitch::OnOverlapEnd);
 	plateTrigger->OnComponentBeginOverlap.AddDynamic(this, &Aswitch::onOverlapBegin);
 	plateTrigger->OnComponentEndOverlap.AddDynamic(this, &Aswitch::OnOverlapEnd);
+	//debug
+	if (ballIfHasPlate == nullptr) {
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "please specify associated ball:" + ballIfHasPlate->GetFName().ToString());
+	}
+	else {
+		ballIfHasPlate->theSwitch = this;
+	}
 	//initialize
 	turnedOn = false;
 	ballInside = false;
@@ -66,19 +67,48 @@ void Aswitch::BeginPlay()
 	{
 	case switchColorList::blueSwitch:
 		//change plate light
-		light->LightColor = lightColorBlue;
+		plateLight->LightColor = lightColorBlue;
+		ButtonLight->LightColor = lightColorBlue;
 		//change door light
 		for (auto& compo : controlList) {
 			compo->light->LightColor = lightColorBlue;
 		}
 		break;
 	case switchColorList::orangeSwitch:
-		light->LightColor = lightColorOrange;
+		plateLight->LightColor = lightColorOrange;
+		ButtonLight->LightColor = lightColorOrange;
 		for (auto& compo : controlList) {
 			compo->light->LightColor = lightColorOrange;
 		}
 		break;
 	}
+
+	//if plate only, turn off at the beginning
+	//turn on when ball is inside
+	//turn off when ball is not inside/ another plate is on
+	if (connectType == connectTypeList::plateOnly) {
+		buttonMesh->SetVisibility(false);
+		turnOff();
+	}
+	if (connectType == connectTypeList::Both) {
+		turnOff();
+	}
+	//turrn on at the beginning and never turn off
+	if (connectType == connectTypeList::switchOnly) {
+		plateMesh->SetVisibility(false);
+		turnOn();
+	}
+	
+
+	//if direct connect
+	/*if (connectType == connectTypeList::directConnect) {
+		buttonMesh->SetVisibility(false);
+		plateMesh->SetVisibility(false);
+		for (int i = 0; i < controlList.Num(); i++) {
+			controlList[i]->turnOn(false);
+		}
+	}*/
+	//if switchable
 	
 	
 	
@@ -89,7 +119,7 @@ void Aswitch::BeginPlay()
 void Aswitch::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (ballInside && ball->beingHeld == false && turnedOn == false) {
+	if (ballIfHasPlate != nullptr && ballInside && ballIfHasPlate->beingHeld == false && turnedOn == false) {
 		turnOn();
 	}
 }
@@ -103,7 +133,7 @@ void Aswitch::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherA
 		MyGM->setCurSwitch(this);
 	}
 	//if ball drop into the container, turn on doors
-	if (OverlappedComp->ComponentHasTag("plate") &&  OtherActor == ball && turnedOn == false) {
+	if (OverlappedComp->ComponentHasTag("plate") &&  OtherActor == ballIfHasPlate && turnedOn == false) {
 		ballInside = true;
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball inside plate");
 	}
@@ -120,7 +150,7 @@ void Aswitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherAct
 		MyGM->setCurSwitch(nullptr);
 	}
 	//if ball disappear from the container -> turn off
-	if (OverlappedComp->ComponentHasTag("plate") && OtherActor == ball && turnedOn == true) {
+	if (OverlappedComp->ComponentHasTag("plate") && OtherActor == ballIfHasPlate && turnedOn == true) {
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball out plate");
 		ballInside = false;
 		turnOff();
@@ -134,10 +164,15 @@ void Aswitch::turnOn()
 	turnedOn = true;
 	//turn on door
 	for (int i = 0; i < controlList.Num(); i++) {
-		controlList[i]->turnOn();
+		
+		controlList[i]->turnOn(connectType != connectTypeList::switchOnly);
 	}
-	//turn on light
-	light->SetVisibility(true,true);
+	//turn on plate light if it is not a switch only
+	if (connectType != connectTypeList::switchOnly) {
+		plateLight->SetVisibility(true, true);
+	}
+	
+	
 	searchTarget();
 }
 
@@ -147,20 +182,26 @@ void Aswitch::turnOff()
 	turnedOn = false;
 	//turn off door
 	for (int i = 0; i < controlList.Num(); i++) {
-		controlList[i]->turnOff();
+		controlList[i]->turnOff(connectType != connectTypeList::switchOnly);
 	}
-	//turn off light
-	light->SetVisibility(false, false);
+	//turn off plate light
+	if (connectType != connectTypeList::switchOnly) {
+		plateLight->SetVisibility(false, false);
+		
+	}
+	if (connectType != connectTypeList::Both) {
+		ButtonLight->SetVisibility(true);
+	}
 }
 
 void Aswitch::searchTarget()
 {
 	for (int i = 0; i < controlList.Num(); i++) {
-		controlList[i]->targetDoor = NULL;
+		controlList[i]->directDoor = NULL;
 		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "current door" + this->GetFName().ToString());
 		for (int j = 0; j < controlList.Num(); j++) {
 			if (controlList[i] != controlList[j] && controlList[i]->curColor == controlList[j]->curColor) {
-				controlList[i]->targetDoor = controlList[j];
+				controlList[i]->directDoor = controlList[j];
 				//get target image
 				//controlList[i]->screen->SetMaterial(0, controlList[i]->targetDoor->renderMat);
 				break;

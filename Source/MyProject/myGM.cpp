@@ -60,7 +60,7 @@ void AmyGM::Tick(float DeltaTime)
 
 void AmyGM::pressE()
 {
-	//switch color
+	//press switch to change color
 	if (curSwitch != nullptr && curSwitch->turnedOn) {
 		for (int i = 0; i < curSwitch->controlList.Num(); i++) {
 			curSwitch->controlList[i]->switchColor();

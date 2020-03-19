@@ -17,6 +17,15 @@ enum switchColorList
 	blueSwitch
 };
 
+UENUM(BlueprintType)
+enum connectTypeList
+{
+	plateOnly,
+	switchOnly,
+	Both
+
+};
+
 
 UCLASS()
 class MYPROJECT_API Aswitch : public AActor
@@ -52,7 +61,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneComponent* plateOffSet;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-		class USpotLightComponent* light;
+		class UPointLightComponent* plateLight;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		class UPointLightComponent* ButtonLight;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* plateMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -61,7 +72,7 @@ public:
 	
 	//variables
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
-		class AcollectableBall* ball;
+		class AcollectableBall* ballIfHasPlate;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
 		TEnumAsByte<switchColorList> SwitchColor;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
@@ -70,7 +81,8 @@ public:
 		FColor lightColorOrange;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
 		TArray<Adoor*> controlList;
-
+	UPROPERTY(EditAnywhere, Category = "Need To Set")
+		TEnumAsByte<connectTypeList> connectType;
 	//when press the switch
 	UFUNCTION()
 		void onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
