@@ -20,9 +20,9 @@ enum switchColorList
 UENUM(BlueprintType)
 enum connectTypeList
 {
+	both,
 	plateOnly,
-	switchOnly,
-	Both
+	switchOnly
 
 };
 
@@ -51,6 +51,7 @@ public:
 	//variables
 	bool turnedOn;
 	bool ballInside;
+	FVector ballOrigin;
 	//components
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* buttonMesh;
@@ -63,7 +64,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		class UPointLightComponent* plateLight;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-		class UPointLightComponent* ButtonLight;
+		class UPointLightComponent* buttonLight;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* plateMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -72,7 +73,9 @@ public:
 	
 	//variables
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
-		class AcollectableBall* ballIfHasPlate;
+		TEnumAsByte<connectTypeList> connectType;
+	UPROPERTY(EditAnywhere, Category = "Need To Set")
+		class AcollectableBall* ball;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
 		TEnumAsByte<switchColorList> SwitchColor;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
@@ -82,7 +85,12 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
 		TArray<Adoor*> controlList;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
-		TEnumAsByte<connectTypeList> connectType;
+		TArray<Aswitch*> needToClose;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
+		UMaterialInstance* blueBallMaterial;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
+		UMaterialInstance* orangeBallMaterial;
+	
 	//when press the switch
 	UFUNCTION()
 		void onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -96,6 +104,7 @@ public:
 
 	void turnOn();
 	void turnOff();
+	void ballReset();
 	void searchTarget();
 
 };

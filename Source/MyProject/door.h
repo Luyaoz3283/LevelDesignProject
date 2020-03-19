@@ -47,7 +47,7 @@ public:
 	//components
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* doorMesh;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* screen;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		class UBoxComponent* enterTrigger;
@@ -82,11 +82,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
 		UMaterial* greyMaterial;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
-		Adoor* directDoor;
-
+		Adoor* targetDoor;
 	//camera
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneCaptureComponent2D* viewCaptureCam;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		USceneComponent* camParent;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UTextureRenderTarget2D* renderTex;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -100,8 +101,9 @@ public:
 	void switchColor ();
 	bool delayDoorStart;
 	void projectcameraImage();
-	void turnOn(bool lightOn);
-	void turnOff(bool LightOn);
+	UFUNCTION(BlueprintCallable)
+		void turnOn();
+	void turnOff();
 
 	
 	

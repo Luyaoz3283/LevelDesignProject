@@ -22,10 +22,11 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_Adoor_turnOn();
 	ENGINE_API UClass* Z_Construct_UClass_UMaterial_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UTextureRenderTarget2D_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_USceneCaptureComponent2D_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USceneCaptureComponent2D_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpotLightComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
@@ -97,6 +98,7 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 		UClass* Class = Adoor::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "onOverlapBegin", &Adoor::execonOverlapBegin },
+			{ "turnOn", &Adoor::execturnOn },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -183,6 +185,28 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_Adoor_turnOn_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_Adoor_turnOn_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "door.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_Adoor_turnOn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_Adoor, nullptr, "turnOn", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_Adoor_turnOn_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_Adoor_turnOn_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_Adoor_turnOn()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_Adoor_turnOn_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_Adoor_NoRegister()
 	{
 		return Adoor::StaticClass();
@@ -207,13 +231,17 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_renderTex;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_camParent_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_camParent;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_viewCaptureCam_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_viewCaptureCam;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_directDoor_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_targetDoor_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_directDoor;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_targetDoor;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_greyMaterial_MetaData[];
 #endif
@@ -277,6 +305,7 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_Adoor_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_Adoor_onOverlapBegin, "onOverlapBegin" }, // 2238018170
+		{ &Z_Construct_UFunction_Adoor_turnOn, "turnOn" }, // 3403276319
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Adoor_Statics::Class_MetaDataParams[] = {
@@ -306,6 +335,14 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Adoor_Statics::NewProp_renderTex = { "renderTex", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Adoor, renderTex), Z_Construct_UClass_UTextureRenderTarget2D_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Adoor_Statics::NewProp_renderTex_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Adoor_Statics::NewProp_renderTex_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Adoor_Statics::NewProp_camParent_MetaData[] = {
+		{ "Category", "door" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "door.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Adoor_Statics::NewProp_camParent = { "camParent", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Adoor, camParent), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Adoor_Statics::NewProp_camParent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Adoor_Statics::NewProp_camParent_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Adoor_Statics::NewProp_viewCaptureCam_MetaData[] = {
 		{ "Category", "door" },
 		{ "Comment", "//camera\n" },
@@ -316,12 +353,12 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Adoor_Statics::NewProp_viewCaptureCam = { "viewCaptureCam", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Adoor, viewCaptureCam), Z_Construct_UClass_USceneCaptureComponent2D_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Adoor_Statics::NewProp_viewCaptureCam_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Adoor_Statics::NewProp_viewCaptureCam_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Adoor_Statics::NewProp_directDoor_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Adoor_Statics::NewProp_targetDoor_MetaData[] = {
 		{ "Category", "Need To Set" },
 		{ "ModuleRelativePath", "door.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Adoor_Statics::NewProp_directDoor = { "directDoor", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Adoor, directDoor), Z_Construct_UClass_Adoor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Adoor_Statics::NewProp_directDoor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Adoor_Statics::NewProp_directDoor_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Adoor_Statics::NewProp_targetDoor = { "targetDoor", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Adoor, targetDoor), Z_Construct_UClass_Adoor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Adoor_Statics::NewProp_targetDoor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Adoor_Statics::NewProp_targetDoor_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Adoor_Statics::NewProp_greyMaterial_MetaData[] = {
 		{ "Category", "Need To Set" },
@@ -406,7 +443,7 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 		{ "ModuleRelativePath", "door.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Adoor_Statics::NewProp_screen = { "screen", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Adoor, screen), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Adoor_Statics::NewProp_screen_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Adoor_Statics::NewProp_screen_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_Adoor_Statics::NewProp_screen = { "screen", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Adoor, screen), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_Adoor_Statics::NewProp_screen_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_Adoor_Statics::NewProp_screen_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Adoor_Statics::NewProp_doorMesh_MetaData[] = {
 		{ "Category", "door" },
@@ -430,8 +467,9 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_noDisplayMat,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_renderMat,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_renderTex,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_camParent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_viewCaptureCam,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_directDoor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_targetDoor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_greyMaterial,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_greenMaterial,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_Adoor_Statics::NewProp_redMaterial,
@@ -474,7 +512,7 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(Adoor, 3708568339);
+	IMPLEMENT_CLASS(Adoor, 247088679);
 	template<> MYPROJECT_API UClass* StaticClass<Adoor>()
 	{
 		return Adoor::StaticClass();

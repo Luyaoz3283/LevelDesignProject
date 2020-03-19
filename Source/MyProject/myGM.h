@@ -53,4 +53,8 @@ public:
 	void setCurBall(AcollectableBall* input);
 	void setCurRegSwitch(AregularSwitch* input);
 
+private:
+	//variables
+	APawn* targetCharacter;
+
 };

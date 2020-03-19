@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{CCD62ABC-EF41-48C9-BBAF-4818928599BA}</UniqueIdentifier>
+      <UniqueIdentifier>{26553A41-861E-4740-A7CC-36DBF39761C6}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyProject.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitignore" />
     <None Include="..\..\README.md" />
     <Filter Include="Config">
-      <UniqueIdentifier>{81B1C60B-F55F-41F1-BBFE-EDA60C8A316F}</UniqueIdentifier>
+      <UniqueIdentifier>{76CF539C-1322-4887-B4BD-F662168C948A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,7 +32,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MyProject">
-      <UniqueIdentifier>{FFF5493D-D046-4039-BB9A-9E5AB337FA13}</UniqueIdentifier>
+      <UniqueIdentifier>{33FC1200-B0BB-40B6-9342-0169050240B7}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\MyProject\collectableBall.cpp">
       <Filter>Source\MyProject</Filter>
@@ -44,12 +44,6 @@
       <Filter>Source\MyProject</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MyProject\door.h">
-      <Filter>Source\MyProject</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\MyProject\DoorBaseClass.cpp">
-      <Filter>Source\MyProject</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\MyProject\DoorBaseClass.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\MyProject\myGM.cpp">

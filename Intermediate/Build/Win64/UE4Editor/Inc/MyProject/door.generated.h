@@ -16,8 +16,16 @@ struct FHitResult;
 #endif
 #define MYPROJECT_door_generated_h
 
-#define LevelDesignProject_Source_MyProject_door_h_28_SPARSE_DATA
-#define LevelDesignProject_Source_MyProject_door_h_28_RPC_WRAPPERS \
+#define LevelDesignProject___Copy_Source_MyProject_door_h_28_SPARSE_DATA
+#define LevelDesignProject___Copy_Source_MyProject_door_h_28_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execturnOn) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->turnOn(); \
+		P_NATIVE_END; \
+	} \
  \
 	DECLARE_FUNCTION(execonOverlapBegin) \
 	{ \
@@ -34,7 +42,15 @@ struct FHitResult;
 	}
 
 
-#define LevelDesignProject_Source_MyProject_door_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+#define LevelDesignProject___Copy_Source_MyProject_door_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execturnOn) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->turnOn(); \
+		P_NATIVE_END; \
+	} \
  \
 	DECLARE_FUNCTION(execonOverlapBegin) \
 	{ \
@@ -51,7 +67,7 @@ struct FHitResult;
 	}
 
 
-#define LevelDesignProject_Source_MyProject_door_h_28_INCLASS_NO_PURE_DECLS \
+#define LevelDesignProject___Copy_Source_MyProject_door_h_28_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAdoor(); \
 	friend struct Z_Construct_UClass_Adoor_Statics; \
@@ -60,7 +76,7 @@ public: \
 	DECLARE_SERIALIZER(Adoor)
 
 
-#define LevelDesignProject_Source_MyProject_door_h_28_INCLASS \
+#define LevelDesignProject___Copy_Source_MyProject_door_h_28_INCLASS \
 private: \
 	static void StaticRegisterNativesAdoor(); \
 	friend struct Z_Construct_UClass_Adoor_Statics; \
@@ -69,7 +85,7 @@ public: \
 	DECLARE_SERIALIZER(Adoor)
 
 
-#define LevelDesignProject_Source_MyProject_door_h_28_STANDARD_CONSTRUCTORS \
+#define LevelDesignProject___Copy_Source_MyProject_door_h_28_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API Adoor(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(Adoor) \
@@ -82,7 +98,7 @@ private: \
 public:
 
 
-#define LevelDesignProject_Source_MyProject_door_h_28_ENHANCED_CONSTRUCTORS \
+#define LevelDesignProject___Copy_Source_MyProject_door_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API Adoor(Adoor&&); \
@@ -93,28 +109,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(Adoor); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(Adoor)
 
 
-#define LevelDesignProject_Source_MyProject_door_h_28_PRIVATE_PROPERTY_OFFSET
-#define LevelDesignProject_Source_MyProject_door_h_25_PROLOG
-#define LevelDesignProject_Source_MyProject_door_h_28_GENERATED_BODY_LEGACY \
+#define LevelDesignProject___Copy_Source_MyProject_door_h_28_PRIVATE_PROPERTY_OFFSET
+#define LevelDesignProject___Copy_Source_MyProject_door_h_25_PROLOG
+#define LevelDesignProject___Copy_Source_MyProject_door_h_28_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	LevelDesignProject_Source_MyProject_door_h_28_PRIVATE_PROPERTY_OFFSET \
-	LevelDesignProject_Source_MyProject_door_h_28_SPARSE_DATA \
-	LevelDesignProject_Source_MyProject_door_h_28_RPC_WRAPPERS \
-	LevelDesignProject_Source_MyProject_door_h_28_INCLASS \
-	LevelDesignProject_Source_MyProject_door_h_28_STANDARD_CONSTRUCTORS \
+	LevelDesignProject___Copy_Source_MyProject_door_h_28_PRIVATE_PROPERTY_OFFSET \
+	LevelDesignProject___Copy_Source_MyProject_door_h_28_SPARSE_DATA \
+	LevelDesignProject___Copy_Source_MyProject_door_h_28_RPC_WRAPPERS \
+	LevelDesignProject___Copy_Source_MyProject_door_h_28_INCLASS \
+	LevelDesignProject___Copy_Source_MyProject_door_h_28_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define LevelDesignProject_Source_MyProject_door_h_28_GENERATED_BODY \
+#define LevelDesignProject___Copy_Source_MyProject_door_h_28_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	LevelDesignProject_Source_MyProject_door_h_28_PRIVATE_PROPERTY_OFFSET \
-	LevelDesignProject_Source_MyProject_door_h_28_SPARSE_DATA \
-	LevelDesignProject_Source_MyProject_door_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
-	LevelDesignProject_Source_MyProject_door_h_28_INCLASS_NO_PURE_DECLS \
-	LevelDesignProject_Source_MyProject_door_h_28_ENHANCED_CONSTRUCTORS \
+	LevelDesignProject___Copy_Source_MyProject_door_h_28_PRIVATE_PROPERTY_OFFSET \
+	LevelDesignProject___Copy_Source_MyProject_door_h_28_SPARSE_DATA \
+	LevelDesignProject___Copy_Source_MyProject_door_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	LevelDesignProject___Copy_Source_MyProject_door_h_28_INCLASS_NO_PURE_DECLS \
+	LevelDesignProject___Copy_Source_MyProject_door_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -122,7 +138,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> MYPROJECT_API UClass* StaticClass<class Adoor>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID LevelDesignProject_Source_MyProject_door_h
+#define CURRENT_FILE_ID LevelDesignProject___Copy_Source_MyProject_door_h
 
 
 #define FOREACH_ENUM_DOORCOLORSTOCK(op) \

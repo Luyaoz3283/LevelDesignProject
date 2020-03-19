@@ -1,13 +1,23 @@
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
-F:\gameProject\LevelDesignProject\Source\MyProject\myGM.h
-F:\gameProject\LevelDesignProject\Source\MyProject\door.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\door.generated.h
-F:\gameProject\LevelDesignProject\Source\MyProject\switch.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\switch.generated.h
-F:\gameProject\LevelDesignProject\Source\MyProject\regularSwitch.h
-F:\gameProject\LevelDesignProject\Source\MyProject\RegularGate.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\RegularGate.generated.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\regularSwitch.generated.h
-F:\gameProject\LevelDesignProject\Source\MyProject\collectableBall.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\collectableBall.generated.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\myGM.generated.h
+F:\gameProject\LevelDesignProject - Copy\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
+F:\gameProject\LevelDesignProject - Copy\Source\MyProject\myGM.h
+F:\gameProject\LevelDesignProject - Copy\Source\MyProject\door.h
+F:\gameProject\LevelDesignProject - Copy\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\door.generated.h
+F:\gameProject\LevelDesignProject - Copy\Source\MyProject\switch.h
+F:\gameProject\LevelDesignProject - Copy\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\switch.generated.h
+F:\gameProject\LevelDesignProject - Copy\Source\MyProject\regularSwitch.h
+F:\gameProject\LevelDesignProject - Copy\Source\MyProject\RegularGate.h
+F:\gameProject\LevelDesignProject - Copy\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\RegularGate.generated.h
+F:\gameProject\LevelDesignProject - Copy\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\regularSwitch.generated.h
+F:\gameProject\LevelDesignProject - Copy\Source\MyProject\collectableBall.h
+F:\gameProject\LevelDesignProject - Copy\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\collectableBall.generated.h
+F:\gameProject\LevelDesignProject - Copy\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\myGM.generated.h
+D:\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Kismet/GameplayStatics.h
+D:\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
+D:\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Engine/CollisionProfile.h
+D:\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CollisionProfile.generated.h
+D:\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
+D:\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Sound/DialogueTypes.h
+D:\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueTypes.generated.h
+D:\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
+D:\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
+D:\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h

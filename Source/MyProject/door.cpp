@@ -24,6 +24,7 @@ Adoor::Adoor()
 	screen = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("screen"));
 	enterTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("collisionBox"));
 	parent = CreateDefaultSubobject<USceneComponent>(TEXT("parentScene"));
+	camParent = CreateDefaultSubobject<USceneComponent>(TEXT("camParent"));
 	light = CreateDefaultSubobject<USpotLightComponent>(TEXT("light"));
 	destination = CreateDefaultSubobject<USceneComponent>(TEXT("destination"));
 	//setup hierchy
@@ -32,7 +33,8 @@ Adoor::Adoor()
 	doorMesh->SetupAttachment(parent);
 	screen->SetupAttachment(parent);
 	enterTrigger->SetupAttachment(screen);
-	viewCaptureCam->SetupAttachment(parent);
+	camParent->SetupAttachment(parent);
+	viewCaptureCam->SetupAttachment(camParent);
 	light->SetupAttachment(doorMesh);
 	destination->SetupAttachment(doorMesh);
 	
@@ -47,9 +49,7 @@ Adoor::Adoor()
 void Adoor::BeginPlay()
 {
 	Super::BeginPlay();
-	//
-	AActor* a = UGameplayStatics::GetActorOfClass(GetWorld(), AmyGM::StaticClass());
-	GM = Cast<AmyGM>(a);
+	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, *GETENUMSTRING("doorColorStock", color1));
 	//debug
 	if (colorList.Num() == 0) {
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "need to specify door color!");
@@ -59,27 +59,49 @@ void Adoor::BeginPlay()
 		curColor = colorList[0];
 		projectcameraImage();
 	}
-	//check door type
-	if (directDoor != nullptr) {
-		turnOn(false);
+	//initilize
+	if (targetDoor == nullptr) {
+		turnOff();
 	}
 	
-	
+	AActor* a = UGameplayStatics::GetActorOfClass(GetWorld(), AmyGM::StaticClass());
+	GM = Cast<AmyGM>(a);
 	targetCharacter = GetWorld()->GetFirstPlayerController()->GetPawn();
+
+	
 }
 
 // Called every frame
 void Adoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	float angle;
+	if (this->ActorHasTag("test")) {
+		//calculate camera turning angle
+		float a = FVector::DotProduct(targetCharacter->GetActorForwardVector(), this->GetActorForwardVector() * (-1.f));
+		FVector b = FVector::CrossProduct(this->GetActorForwardVector(), FVector::UpVector);
+		float c = FVector::DotProduct(b, targetCharacter->GetActorForwardVector());
+		float d = acos(c) * 180.f / PI;
+		angle = acos(a) * 180.F / PI;
+		if (d > 90) {
+			angle = angle * (-1.f);
+		}
+		
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "facing:" + FString::FromInt(angle));
+		FRotator e(0, angle, 0);
+		targetDoor->camParent->SetRelativeRotation(e);
+	}
+	//rotate camera
+	
+	
+	
 }
 
 void Adoor::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	
-	if (directDoor != NULL) {
-		FVector ActorLocation = directDoor->GetActorLocation();
+	if ((OtherActor->ActorHasTag("player") || OtherActor->ActorHasTag("ball"))&& targetDoor != NULL) {
+		FVector ActorLocation = targetDoor->GetActorLocation();
 		FRotator testRotationVector(0.f, 0.f, 0.f);
 		// Set the location- this will blindly place the actor at the given location  
 		FVector direction = destination->GetComponentLocation() - doorMesh->GetComponentLocation();
@@ -125,27 +147,26 @@ void Adoor::projectcameraImage()
 {
 	viewCaptureCam->TextureTarget = renderTex;
 }
-
-void Adoor::turnOn(bool lightOn)
+void Adoor::turnOn()
 {
-	//turn on light if it's direct connect door
-	if (lightOn) {
-		light->SetVisibility(true, true);
-	}
-	
+	//turn on light
+	light->SetVisibility(true,true);
 	//turn on door color
 	colorIndex = 0;
 	curColor = colorList[colorIndex];
 	displayColor();
-}
-
-void Adoor::turnOff(bool lightOn)
-{
-	if (lightOn) {
-		light->SetVisibility(false, false);
+	screen->SetVisibility(true);
+	if (targetDoor != nullptr) {
+		screen->SetMaterial(0, targetDoor->renderMat);
 	}
 	
+}
+
+void Adoor::turnOff()
+{
+	light->SetVisibility(false, false);
 	doorMesh->SetMaterial(0, greyMaterial);
+	screen->SetVisibility(false);
 }
 
 

@@ -3,7 +3,8 @@
 
 #include "myGM.h"
 #include "door.h"
-
+#include "myGM.h"
+#include "Kismet/GameplayStatics.h"
 #include "Engine/Engine.h"
 // Sets default values
 AmyGM::AmyGM()
@@ -21,14 +22,17 @@ void AmyGM::BeginPlay()
 	Super::BeginPlay();
 	delayDoorStart = true;
 	//initialization
-	//get ball mesh component
+	if (GetWorld()->GetFirstPlayerController() != NULL) {
+		targetCharacter = GetWorld()->GetFirstPlayerController()->GetPawn();
+	}
+	
 }
 
 // Called every frame
 void AmyGM::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 	/*if (delayDoorStart) {
 		searchTarget();
 		delayDoorStart = false;

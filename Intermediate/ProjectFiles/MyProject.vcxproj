@@ -279,8 +279,6 @@
     <ClInclude Include="..\..\Source\MyProject\collectableBall.h"/>
     <ClCompile Include="..\..\Source\MyProject\door.cpp"/>
     <ClInclude Include="..\..\Source\MyProject\door.h"/>
-    <ClCompile Include="..\..\Source\MyProject\DoorBaseClass.cpp"/>
-    <ClInclude Include="..\..\Source\MyProject\DoorBaseClass.h"/>
     <ClCompile Include="..\..\Source\MyProject\myGM.cpp"/>
     <ClInclude Include="..\..\Source\MyProject\myGM.h"/>
     <None Include="..\..\Source\MyProject\MyProject.Build.cs"/>
