@@ -16,8 +16,8 @@ struct FHitResult;
 #endif
 #define MYPROJECT_regularSwitch_generated_h
 
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_SPARSE_DATA
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_RPC_WRAPPERS \
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_13_SPARSE_DATA
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_13_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnOverlapEnd) \
 	{ \
@@ -46,7 +46,7 @@ struct FHitResult;
 	}
 
 
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnOverlapEnd) \
 	{ \
@@ -75,7 +75,7 @@ struct FHitResult;
 	}
 
 
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_INCLASS_NO_PURE_DECLS \
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAregularSwitch(); \
 	friend struct Z_Construct_UClass_AregularSwitch_Statics; \
@@ -84,7 +84,7 @@ public: \
 	DECLARE_SERIALIZER(AregularSwitch)
 
 
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_INCLASS \
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_13_INCLASS \
 private: \
 	static void StaticRegisterNativesAregularSwitch(); \
 	friend struct Z_Construct_UClass_AregularSwitch_Statics; \
@@ -93,7 +93,7 @@ public: \
 	DECLARE_SERIALIZER(AregularSwitch)
 
 
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_STANDARD_CONSTRUCTORS \
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AregularSwitch(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AregularSwitch) \
@@ -106,7 +106,7 @@ private: \
 public:
 
 
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_ENHANCED_CONSTRUCTORS \
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AregularSwitch(AregularSwitch&&); \
@@ -117,28 +117,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AregularSwitch); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AregularSwitch)
 
 
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_PRIVATE_PROPERTY_OFFSET
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_10_PROLOG
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_GENERATED_BODY_LEGACY \
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_13_PRIVATE_PROPERTY_OFFSET
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_10_PROLOG
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_PRIVATE_PROPERTY_OFFSET \
-	LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_SPARSE_DATA \
-	LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_RPC_WRAPPERS \
-	LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_INCLASS \
-	LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_STANDARD_CONSTRUCTORS \
+	LevelDesignProject_Source_MyProject_regularSwitch_h_13_PRIVATE_PROPERTY_OFFSET \
+	LevelDesignProject_Source_MyProject_regularSwitch_h_13_SPARSE_DATA \
+	LevelDesignProject_Source_MyProject_regularSwitch_h_13_RPC_WRAPPERS \
+	LevelDesignProject_Source_MyProject_regularSwitch_h_13_INCLASS \
+	LevelDesignProject_Source_MyProject_regularSwitch_h_13_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_GENERATED_BODY \
+#define LevelDesignProject_Source_MyProject_regularSwitch_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_PRIVATE_PROPERTY_OFFSET \
-	LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_SPARSE_DATA \
-	LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_INCLASS_NO_PURE_DECLS \
-	LevelDesignProject___Copy_Source_MyProject_regularSwitch_h_13_ENHANCED_CONSTRUCTORS \
+	LevelDesignProject_Source_MyProject_regularSwitch_h_13_PRIVATE_PROPERTY_OFFSET \
+	LevelDesignProject_Source_MyProject_regularSwitch_h_13_SPARSE_DATA \
+	LevelDesignProject_Source_MyProject_regularSwitch_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	LevelDesignProject_Source_MyProject_regularSwitch_h_13_INCLASS_NO_PURE_DECLS \
+	LevelDesignProject_Source_MyProject_regularSwitch_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -146,7 +146,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> MYPROJECT_API UClass* StaticClass<class AregularSwitch>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID LevelDesignProject___Copy_Source_MyProject_regularSwitch_h
+#define CURRENT_FILE_ID LevelDesignProject_Source_MyProject_regularSwitch_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

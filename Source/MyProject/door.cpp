@@ -75,20 +75,32 @@ void Adoor::BeginPlay()
 void Adoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	float angle;
+	
 	if (this->ActorHasTag("test")) {
 		//calculate camera turning angle
-		float a = FVector::DotProduct(targetCharacter->GetActorForwardVector(), this->GetActorForwardVector() * (-1.f));
+		/*float a = FVector::DotProduct(targetCharacter->GetActorForwardVector(), this->GetActorForwardVector() * (-1.f));
 		FVector b = FVector::CrossProduct(this->GetActorForwardVector(), FVector::UpVector);
 		float c = FVector::DotProduct(b, targetCharacter->GetActorForwardVector());
 		float d = acos(c) * 180.f / PI;
 		angle = acos(a) * 180.F / PI;
 		if (d > 90) {
 			angle = angle * (-1.f);
+		}*/
+		//correct
+		
+		FVector playerDirection = (screen->GetComponentLocation() - targetCharacter->GetActorLocation()).GetSafeNormal();
+		float dotProduct = FVector::DotProduct(this->GetActorForwardVector() * (-1.f), playerDirection);
+		float rawDegree = acos(dotProduct) * 180.f / PI;
+		float relativeToRight = FVector::DotProduct(playerDirection, this->GetActorRightVector());
+		float rightDegree = acos(relativeToRight) * 180.f / PI;
+		if (rightDegree < 90) {
+			rawDegree = rawDegree * (-1.f);
 		}
 		
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "facing:" + FString::FromInt(angle));
-		FRotator e(0, angle, 0);
+		
+		
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "facing:" + FString::FromInt(rawDegree));
+		FRotator e(0, rawDegree, 0);
 		targetDoor->camParent->SetRelativeRotation(e);
 	}
 	//rotate camera
