@@ -99,7 +99,7 @@ void Adoor::Tick(float DeltaTime)
 		
 		
 		
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "facing:" + FString::FromInt(rawDegree));
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "facing:" + FString::FromInt(rawDegree));
 		FRotator e(0, rawDegree, 0);
 		targetDoor->camParent->SetRelativeRotation(e);
 	}

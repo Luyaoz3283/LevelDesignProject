@@ -19,6 +19,14 @@ struct FHitResult;
 #define LevelDesignProject_Source_MyProject_collectableBall_h_13_SPARSE_DATA
 #define LevelDesignProject_Source_MyProject_collectableBall_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execDropped) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->Dropped(); \
+		P_NATIVE_END; \
+	} \
+ \
 	DECLARE_FUNCTION(execOnOverlapEnd) \
 	{ \
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp); \
@@ -47,6 +55,14 @@ struct FHitResult;
 
 
 #define LevelDesignProject_Source_MyProject_collectableBall_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execDropped) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->Dropped(); \
+		P_NATIVE_END; \
+	} \
  \
 	DECLARE_FUNCTION(execOnOverlapEnd) \
 	{ \

@@ -41,12 +41,13 @@ public:
 
 	//interact with switch
 	bool inSwitchZone;
-	UFUNCTION(BlueprintCallable, Category = "test")
+	UFUNCTION(BlueprintCallable)
 	void pressE();
 	//variables
 	//change: move to private
 	Aswitch* curSwitch;
-	AcollectableBall* curBall;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		AcollectableBall* curBall;
 	AregularSwitch* curRegSwitch;
 	//functions
 	void setCurSwitch(Aswitch* input);

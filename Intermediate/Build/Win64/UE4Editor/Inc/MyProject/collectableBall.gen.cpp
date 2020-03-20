@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodecollectableBall() {}
 	MYPROJECT_API UClass* Z_Construct_UClass_AcollectableBall();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_MyProject();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_AcollectableBall_Dropped();
 	MYPROJECT_API UFunction* Z_Construct_UFunction_AcollectableBall_onOverlapBegin();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
@@ -32,10 +33,33 @@ void EmptyLinkFunctionForGeneratedCodecollectableBall() {}
 	{
 		UClass* Class = AcollectableBall::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "Dropped", &AcollectableBall::execDropped },
 			{ "onOverlapBegin", &AcollectableBall::execonOverlapBegin },
 			{ "OnOverlapEnd", &AcollectableBall::execOnOverlapEnd },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AcollectableBall_Dropped_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AcollectableBall_Dropped_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "collectableBall.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AcollectableBall_Dropped_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AcollectableBall, nullptr, "Dropped", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AcollectableBall_Dropped_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AcollectableBall_Dropped_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AcollectableBall_Dropped()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AcollectableBall_Dropped_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AcollectableBall_onOverlapBegin_Statics
 	{
@@ -209,6 +233,11 @@ void EmptyLinkFunctionForGeneratedCodecollectableBall() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_downward_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_downward;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_beingHeld_MetaData[];
+#endif
+		static void NewProp_beingHeld_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_beingHeld;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -218,6 +247,7 @@ void EmptyLinkFunctionForGeneratedCodecollectableBall() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AcollectableBall_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AcollectableBall_Dropped, "Dropped" }, // 2335710337
 		{ &Z_Construct_UFunction_AcollectableBall_onOverlapBegin, "onOverlapBegin" }, // 1985256603
 		{ &Z_Construct_UFunction_AcollectableBall_OnOverlapEnd, "OnOverlapEnd" }, // 340736810
 	};
@@ -267,12 +297,26 @@ void EmptyLinkFunctionForGeneratedCodecollectableBall() {}
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AcollectableBall_Statics::NewProp_downward = { "downward", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AcollectableBall, downward), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AcollectableBall_Statics::NewProp_downward_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AcollectableBall_Statics::NewProp_downward_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AcollectableBall_Statics::NewProp_beingHeld_MetaData[] = {
+		{ "Category", "collectableBall" },
+		{ "Comment", "//variables\n" },
+		{ "ModuleRelativePath", "collectableBall.h" },
+		{ "ToolTip", "variables" },
+	};
+#endif
+	void Z_Construct_UClass_AcollectableBall_Statics::NewProp_beingHeld_SetBit(void* Obj)
+	{
+		((AcollectableBall*)Obj)->beingHeld = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AcollectableBall_Statics::NewProp_beingHeld = { "beingHeld", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AcollectableBall), &Z_Construct_UClass_AcollectableBall_Statics::NewProp_beingHeld_SetBit, METADATA_PARAMS(Z_Construct_UClass_AcollectableBall_Statics::NewProp_beingHeld_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AcollectableBall_Statics::NewProp_beingHeld_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AcollectableBall_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_parent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_ballTrigger,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_ballMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_MyGM,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_downward,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AcollectableBall_Statics::NewProp_beingHeld,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AcollectableBall_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AcollectableBall>::IsAbstract,
@@ -301,7 +345,7 @@ void EmptyLinkFunctionForGeneratedCodecollectableBall() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AcollectableBall, 74924073);
+	IMPLEMENT_CLASS(AcollectableBall, 2176914979);
 	template<> MYPROJECT_API UClass* StaticClass<AcollectableBall>()
 	{
 		return AcollectableBall::StaticClass();

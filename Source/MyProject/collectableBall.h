@@ -26,7 +26,8 @@ public:
 
 
 	//variables
-	bool beingHeld;
+	UPROPERTY(BlueprintReadWrite)
+		bool beingHeld;
 	bool onGround;
 	APawn* theCharacter;
 	FVector origin;
@@ -53,7 +54,8 @@ public:
 
 	void resetLocation();
 	void PickedUp();
-	void Dropped();
+	UFUNCTION(BlueprintCallable)
+		void Dropped();
 	void hitGround();
 
 
