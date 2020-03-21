@@ -35,14 +35,6 @@ void AregularSwitch::BeginPlay()
 	//initialization
 	AActor* a = UGameplayStatics::GetActorOfClass(GetWorld(), AmyGM::StaticClass());
 	theGM = Cast<AmyGM>(a);
-	//debug message
-	if (gateOpen.Num() == 0) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "no gate is in the opening controll list");
-	}
-	if (gateClose.Num() == 0) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "no gate is in the closing controll list");
-	}
-	//
 	
 }
 
@@ -51,30 +43,6 @@ void AregularSwitch::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-}
-
-void AregularSwitch::turnOn()
-{
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "reg switch turned on");
-	turnedOn = true;
-	//turn on gates
-	for (auto& compo : gateOpen) {
-		compo->turnOn();
-	}
-	//turn off gates
-	for (auto& compo : gateClose) {
-		compo->turnOff();
-	}
-	
-}
-
-void AregularSwitch::turnOff() {
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "reg switch turned off");
-	turnedOn = false;
-	
-}
-bool AregularSwitch::hasTurnedOn() {
-	return turnedOn;
 }
 
 

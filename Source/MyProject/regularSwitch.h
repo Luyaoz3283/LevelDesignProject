@@ -35,18 +35,11 @@ public:
 		class UBoxComponent* trigger;
 
 	//variables
-	UPROPERTY(EditAnywhere, Category = "Need To Set")
-		TArray<ARegularGate*> gateOpen;
-	UPROPERTY(EditAnywhere, Category = "Need To Set")
-		TArray<ARegularGate*> gateClose;
 	UPROPERTY(BlueprintReadWrite)
 		class AmyGM* theGM;
 
 
 	//functions
-	void turnOn();
-	void turnOff();
-	bool hasTurnedOn();	
 	UFUNCTION()
 		void onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UFUNCTION()
@@ -55,6 +48,5 @@ public:
 private:
 	//variables
 	//bool chaInside;
-	bool turnedOn;
 
 };

@@ -23,7 +23,6 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	MYPROJECT_API UFunction* Z_Construct_UFunction_AregularSwitch_OnOverlapEnd();
 	MYPROJECT_API UClass* Z_Construct_UClass_AmyGM_NoRegister();
-	MYPROJECT_API UClass* Z_Construct_UClass_ARegularGate_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
@@ -105,7 +104,9 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AregularSwitch_onOverlapBegin_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "//functions\n" },
 		{ "ModuleRelativePath", "regularSwitch.h" },
+		{ "ToolTip", "functions" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AregularSwitch_onOverlapBegin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AregularSwitch, nullptr, "onOverlapBegin", nullptr, nullptr, sizeof(regularSwitch_eventonOverlapBegin_Parms), Z_Construct_UFunction_AregularSwitch_onOverlapBegin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AregularSwitch_onOverlapBegin_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AregularSwitch_onOverlapBegin_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AregularSwitch_onOverlapBegin_Statics::Function_MetaDataParams)) };
@@ -194,16 +195,6 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_theGM;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_gateClose_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_gateClose;
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_gateClose_Inner;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_gateOpen_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_gateOpen;
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_gateOpen_Inner;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_trigger_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_trigger;
@@ -224,7 +215,7 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AregularSwitch_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AregularSwitch_onOverlapBegin, "onOverlapBegin" }, // 3996852110
+		{ &Z_Construct_UFunction_AregularSwitch_onOverlapBegin, "onOverlapBegin" }, // 4117754007
 		{ &Z_Construct_UFunction_AregularSwitch_OnOverlapEnd, "OnOverlapEnd" }, // 793961623
 	};
 #if WITH_METADATA
@@ -236,28 +227,12 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AregularSwitch_Statics::NewProp_theGM_MetaData[] = {
 		{ "Category", "regularSwitch" },
-		{ "ModuleRelativePath", "regularSwitch.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AregularSwitch_Statics::NewProp_theGM = { "theGM", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AregularSwitch, theGM), Z_Construct_UClass_AmyGM_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AregularSwitch_Statics::NewProp_theGM_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AregularSwitch_Statics::NewProp_theGM_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateClose_MetaData[] = {
-		{ "Category", "Need To Set" },
-		{ "ModuleRelativePath", "regularSwitch.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateClose = { "gateClose", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AregularSwitch, gateClose), METADATA_PARAMS(Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateClose_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateClose_MetaData)) };
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateClose_Inner = { "gateClose", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_ARegularGate_NoRegister, METADATA_PARAMS(nullptr, 0) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateOpen_MetaData[] = {
-		{ "Category", "Need To Set" },
 		{ "Comment", "//variables\n" },
 		{ "ModuleRelativePath", "regularSwitch.h" },
 		{ "ToolTip", "variables" },
 	};
 #endif
-	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateOpen = { "gateOpen", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AregularSwitch, gateOpen), METADATA_PARAMS(Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateOpen_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateOpen_MetaData)) };
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateOpen_Inner = { "gateOpen", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_ARegularGate_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AregularSwitch_Statics::NewProp_theGM = { "theGM", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AregularSwitch, theGM), Z_Construct_UClass_AmyGM_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AregularSwitch_Statics::NewProp_theGM_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AregularSwitch_Statics::NewProp_theGM_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AregularSwitch_Statics::NewProp_trigger_MetaData[] = {
 		{ "Category", "regularSwitch" },
@@ -286,10 +261,6 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AregularSwitch_Statics::NewProp_parent = { "parent", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AregularSwitch, parent), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AregularSwitch_Statics::NewProp_parent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AregularSwitch_Statics::NewProp_parent_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AregularSwitch_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_theGM,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateClose,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateClose_Inner,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateOpen,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_gateOpen_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_trigger,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_mesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_parent,
@@ -321,7 +292,7 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AregularSwitch, 1294245724);
+	IMPLEMENT_CLASS(AregularSwitch, 1038187580);
 	template<> MYPROJECT_API UClass* StaticClass<AregularSwitch>()
 	{
 		return AregularSwitch::StaticClass();

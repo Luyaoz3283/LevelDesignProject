@@ -30,13 +30,7 @@ public:
 		USceneComponent* parent;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneComponent* meshOffset;
-	UPROPERTY(EditAnywhere, Category = "Need To Set")
-		FVector moveUpward;
-
 	//variables
 	FVector originalLoc;
-	//functions
-	void turnOn();
-	void turnOff();
 
 };

@@ -36,14 +36,5 @@ void ARegularGate::Tick(float DeltaTime)
 
 }
 
-void ARegularGate::turnOn()
-{
-	//mesh->SetWorldLocation(gateDestination->GetComponentLocation(), false);
-	//this->SetActorLocation(GetActorLocation() + moveUpward);
-}
 
-void ARegularGate::turnOff()
-{
-	mesh->SetWorldLocation(originalLoc);
-}
 
