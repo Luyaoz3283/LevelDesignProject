@@ -18,7 +18,12 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_MyProject();
 	MYPROJECT_API UFunction* Z_Construct_UFunction_AmyGM_pressE();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_AmyGM_setCurBall();
 	MYPROJECT_API UClass* Z_Construct_UClass_AcollectableBall_NoRegister();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_AmyGM_setCurRegSwitch();
+	MYPROJECT_API UClass* Z_Construct_UClass_AregularSwitch_NoRegister();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_AmyGM_setCurSwitch();
+	MYPROJECT_API UClass* Z_Construct_UClass_Aswitch_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 // End Cross Module References
 	void AmyGM::StaticRegisterNativesAmyGM()
@@ -26,6 +31,9 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 		UClass* Class = AmyGM::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "pressE", &AmyGM::execpressE },
+			{ "setCurBall", &AmyGM::execsetCurBall },
+			{ "setCurRegSwitch", &AmyGM::execsetCurRegSwitch },
+			{ "setCurSwitch", &AmyGM::execsetCurSwitch },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -48,6 +56,104 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AmyGM_pressE_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AmyGM_setCurBall_Statics
+	{
+		struct myGM_eventsetCurBall_Parms
+		{
+			AcollectableBall* input;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_input;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AmyGM_setCurBall_Statics::NewProp_input = { "input", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(myGM_eventsetCurBall_Parms, input), Z_Construct_UClass_AcollectableBall_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AmyGM_setCurBall_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AmyGM_setCurBall_Statics::NewProp_input,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AmyGM_setCurBall_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "myGM.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AmyGM_setCurBall_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AmyGM, nullptr, "setCurBall", nullptr, nullptr, sizeof(myGM_eventsetCurBall_Parms), Z_Construct_UFunction_AmyGM_setCurBall_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AmyGM_setCurBall_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AmyGM_setCurBall_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AmyGM_setCurBall_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AmyGM_setCurBall()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AmyGM_setCurBall_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics
+	{
+		struct myGM_eventsetCurRegSwitch_Parms
+		{
+			AregularSwitch* input;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_input;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics::NewProp_input = { "input", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(myGM_eventsetCurRegSwitch_Parms, input), Z_Construct_UClass_AregularSwitch_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics::NewProp_input,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "myGM.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AmyGM, nullptr, "setCurRegSwitch", nullptr, nullptr, sizeof(myGM_eventsetCurRegSwitch_Parms), Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AmyGM_setCurRegSwitch()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AmyGM_setCurRegSwitch_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AmyGM_setCurSwitch_Statics
+	{
+		struct myGM_eventsetCurSwitch_Parms
+		{
+			Aswitch* input;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_input;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AmyGM_setCurSwitch_Statics::NewProp_input = { "input", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(myGM_eventsetCurSwitch_Parms, input), Z_Construct_UClass_Aswitch_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AmyGM_setCurSwitch_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AmyGM_setCurSwitch_Statics::NewProp_input,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AmyGM_setCurSwitch_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "//functions\n" },
+		{ "ModuleRelativePath", "myGM.h" },
+		{ "ToolTip", "functions" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AmyGM_setCurSwitch_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AmyGM, nullptr, "setCurSwitch", nullptr, nullptr, sizeof(myGM_eventsetCurSwitch_Parms), Z_Construct_UFunction_AmyGM_setCurSwitch_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AmyGM_setCurSwitch_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AmyGM_setCurSwitch_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AmyGM_setCurSwitch_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AmyGM_setCurSwitch()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AmyGM_setCurSwitch_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -80,6 +186,9 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AmyGM_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AmyGM_pressE, "pressE" }, // 2592489363
+		{ &Z_Construct_UFunction_AmyGM_setCurBall, "setCurBall" }, // 4076041892
+		{ &Z_Construct_UFunction_AmyGM_setCurRegSwitch, "setCurRegSwitch" }, // 2715375015
+		{ &Z_Construct_UFunction_AmyGM_setCurSwitch, "setCurSwitch" }, // 872310302
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AmyGM_Statics::Class_MetaDataParams[] = {
@@ -133,7 +242,7 @@ void EmptyLinkFunctionForGeneratedCodemyGM() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AmyGM, 2083650854);
+	IMPLEMENT_CLASS(AmyGM, 3567991718);
 	template<> MYPROJECT_API UClass* StaticClass<AmyGM>()
 	{
 		return AmyGM::StaticClass();

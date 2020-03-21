@@ -8,6 +8,9 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AregularSwitch;
+class AcollectableBall;
+class Aswitch;
 #ifdef MYPROJECT_myGM_generated_h
 #error "myGM.generated.h already included, missing '#pragma once' in myGM.h"
 #endif
@@ -15,6 +18,33 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define LevelDesignProject_Source_MyProject_myGM_h_17_SPARSE_DATA
 #define LevelDesignProject_Source_MyProject_myGM_h_17_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execsetCurRegSwitch) \
+	{ \
+		P_GET_OBJECT(AregularSwitch,Z_Param_input); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->setCurRegSwitch(Z_Param_input); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execsetCurBall) \
+	{ \
+		P_GET_OBJECT(AcollectableBall,Z_Param_input); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->setCurBall(Z_Param_input); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execsetCurSwitch) \
+	{ \
+		P_GET_OBJECT(Aswitch,Z_Param_input); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->setCurSwitch(Z_Param_input); \
+		P_NATIVE_END; \
+	} \
  \
 	DECLARE_FUNCTION(execpressE) \
 	{ \
@@ -26,6 +56,33 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 
 #define LevelDesignProject_Source_MyProject_myGM_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execsetCurRegSwitch) \
+	{ \
+		P_GET_OBJECT(AregularSwitch,Z_Param_input); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->setCurRegSwitch(Z_Param_input); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execsetCurBall) \
+	{ \
+		P_GET_OBJECT(AcollectableBall,Z_Param_input); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->setCurBall(Z_Param_input); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execsetCurSwitch) \
+	{ \
+		P_GET_OBJECT(Aswitch,Z_Param_input); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->setCurSwitch(Z_Param_input); \
+		P_NATIVE_END; \
+	} \
  \
 	DECLARE_FUNCTION(execpressE) \
 	{ \

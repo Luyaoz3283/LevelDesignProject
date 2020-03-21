@@ -8,9 +8,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UPrimitiveComponent;
-class AActor;
-struct FHitResult;
 #ifdef MYPROJECT_collectableBall_generated_h
 #error "collectableBall.generated.h already included, missing '#pragma once' in collectableBall.h"
 #endif
@@ -25,32 +22,6 @@ struct FHitResult;
 		P_NATIVE_BEGIN; \
 		P_THIS->Dropped(); \
 		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execOnOverlapEnd) \
-	{ \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp); \
-		P_GET_OBJECT(AActor,Z_Param_OtherActor); \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OtherComp); \
-		P_GET_PROPERTY(UIntProperty,Z_Param_OtherBodyIndex); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->OnOverlapEnd(Z_Param_OverlappedComp,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execonOverlapBegin) \
-	{ \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp); \
-		P_GET_OBJECT(AActor,Z_Param_OtherActor); \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OtherComp); \
-		P_GET_PROPERTY(UIntProperty,Z_Param_OtherBodyIndex); \
-		P_GET_UBOOL(Z_Param_bFromSweep); \
-		P_GET_STRUCT_REF(FHitResult,Z_Param_Out_SweepResult); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->onOverlapBegin(Z_Param_OverlappedComp,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult); \
-		P_NATIVE_END; \
 	}
 
 
@@ -61,32 +32,6 @@ struct FHitResult;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		P_THIS->Dropped(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execOnOverlapEnd) \
-	{ \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp); \
-		P_GET_OBJECT(AActor,Z_Param_OtherActor); \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OtherComp); \
-		P_GET_PROPERTY(UIntProperty,Z_Param_OtherBodyIndex); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->OnOverlapEnd(Z_Param_OverlappedComp,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execonOverlapBegin) \
-	{ \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp); \
-		P_GET_OBJECT(AActor,Z_Param_OtherActor); \
-		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OtherComp); \
-		P_GET_PROPERTY(UIntProperty,Z_Param_OtherBodyIndex); \
-		P_GET_UBOOL(Z_Param_bFromSweep); \
-		P_GET_STRUCT_REF(FHitResult,Z_Param_Out_SweepResult); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->onOverlapBegin(Z_Param_OverlappedComp,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult); \
 		P_NATIVE_END; \
 	}
 

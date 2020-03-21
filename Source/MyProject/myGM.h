@@ -42,7 +42,7 @@ public:
 	//interact with switch
 	bool inSwitchZone;
 	UFUNCTION(BlueprintCallable)
-	void pressE();
+		void pressE();
 	//variables
 	//change: move to private
 	Aswitch* curSwitch;
@@ -50,9 +50,12 @@ public:
 		AcollectableBall* curBall;
 	AregularSwitch* curRegSwitch;
 	//functions
-	void setCurSwitch(Aswitch* input);
-	void setCurBall(AcollectableBall* input);
-	void setCurRegSwitch(AregularSwitch* input);
+	UFUNCTION(BlueprintCallable)
+		void setCurSwitch(Aswitch* input);
+	UFUNCTION(BlueprintCallable)
+		void setCurBall(AcollectableBall* input);
+	UFUNCTION(BlueprintCallable)
+		void setCurRegSwitch(AregularSwitch* input);
 
 private:
 	//variables
