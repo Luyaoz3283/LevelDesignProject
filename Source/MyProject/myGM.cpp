@@ -86,12 +86,12 @@ void AmyGM::pressE()
 		}
 	}
 	//regular switch
-	if (curRegSwitch != nullptr) {
+	/*if (curRegSwitch != nullptr) {
 		if (!curRegSwitch->hasTurnedOn()) {
 			curRegSwitch->turnOn();
 		}
 		
-	}
+	}*/
 }
 
 void AmyGM::setCurSwitch(Aswitch* input)

@@ -82,11 +82,11 @@ bool AregularSwitch::hasTurnedOn() {
 void AregularSwitch::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	//may replace with get player character
-	if (OtherActor->ActorHasTag("player")) {
-		//chaInside = true;
-		theGM->setCurRegSwitch(this);
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player inside reg switch");
-	}
+	//if (OtherActor->ActorHasTag("player")) {
+	//	//chaInside = true;
+	//	theGM->setCurRegSwitch(this);
+	//	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player inside reg switch");
+	//}
 }
 
 void AregularSwitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
