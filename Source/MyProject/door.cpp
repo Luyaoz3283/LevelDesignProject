@@ -165,7 +165,10 @@ void Adoor::turnOn()
 	light->SetVisibility(true,true);
 	//turn on door color
 	colorIndex = 0;
-	curColor = colorList[colorIndex];
+	if (colorList.Num() > 0) {
+		curColor = colorList[colorIndex];
+	}
+	
 	displayColor();
 	screen->SetVisibility(true);
 	if (targetDoor != nullptr) {
