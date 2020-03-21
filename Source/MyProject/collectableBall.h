@@ -30,7 +30,8 @@ public:
 		bool beingHeld;
 	UPROPERTY(BlueprintReadWrite)
 	bool onGround;
-	APawn* theCharacter;
+	UPROPERTY(BlueprintReadWrite)
+		APawn* theCharacter;
 	FVector origin;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
 		FVector downward;

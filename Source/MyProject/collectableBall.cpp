@@ -50,23 +50,10 @@ void AcollectableBall::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//if being held, follow players
-	//1
 	//if (beingHeld) {
 	//	FVector newLocation = theCharacter->GetActorLocation();
 	//	newLocation.X = newLocation.X + 100.f;
 	//	this->SetActorLocation(newLocation, false);
-	//}
-	////ray cast
-	start = ballMesh->GetComponentLocation();
-	end = start + downward;
-	//if (!beingHeld && !onGround && GetWorld()->LineTraceSingleByChannel(Hit, start, end, ECC_Visibility, DefaultComponentQueryParams, DefaultResponseParams)) {
-	//	
-	//	if (!Hit.GetActor()->ActorHasTag("ball")) {
-	//		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball hit object");
-	//		//hitGround();
-	//		
-	//	}
-		
 	//}
 }
 
@@ -91,15 +78,7 @@ void AcollectableBall::Dropped()
 	ballMesh->SetCollisionEnabled(beingHeld ? ECollisionEnabled::NoCollision : ECollisionEnabled::QueryAndPhysics);
 }
 
-//void AcollectableBall::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-//{
-//	//add: player check
-//	if (OtherActor->ActorHasTag("player")) {
-//		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "enter ball range");
-//		MyGM->setCurBall(this);
-//	}
-//	
-//}
+
 
 //void AcollectableBall::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 //{
@@ -110,6 +89,16 @@ void AcollectableBall::Dropped()
 //		}
 //	}
 //	
+//	
+//}
+
+//void AcollectableBall::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+//{
+//	//add: player check
+//	if (OtherActor->ActorHasTag("player")) {
+//		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "enter ball range");
+//		MyGM->setCurBall(this);
+//	}
 //	
 //}
 
