@@ -113,11 +113,10 @@ void Adoor::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAct
 {
 	
 	if ((OtherActor->ActorHasTag("player") || OtherActor->ActorHasTag("ball"))&& targetDoor != NULL) {
-		FVector ActorLocation = targetDoor->GetActorLocation();
 		FRotator testRotationVector(0.f, 0.f, 0.f);
 		// Set the location- this will blindly place the actor at the given location  
-		FVector direction = destination->GetComponentLocation() - doorMesh->GetComponentLocation();
-		targetCharacter->SetActorLocation(ActorLocation - direction, false);
+		FVector destination1 = targetDoor->GetActorForwardVector() * 100.f + targetDoor->GetActorLocation();
+		targetCharacter->SetActorLocation(destination1, false);
 		targetCharacter->AddControllerYawInput(180);
 		targetCharacter->SetActorRotation(testRotationVector, ETeleportType::None);
 		//testTargetCharacter -> SetActorLocationAndRotation(ActorLocation, testRotationVector, false, 0, ETeleportType::None);
