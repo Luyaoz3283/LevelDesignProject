@@ -203,6 +203,10 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_mesh;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_meshOffset_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_meshOffset;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_parent_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_parent;
@@ -250,6 +254,14 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AregularSwitch_Statics::NewProp_mesh = { "mesh", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AregularSwitch, mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AregularSwitch_Statics::NewProp_mesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AregularSwitch_Statics::NewProp_mesh_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AregularSwitch_Statics::NewProp_meshOffset_MetaData[] = {
+		{ "Category", "regularSwitch" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "regularSwitch.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AregularSwitch_Statics::NewProp_meshOffset = { "meshOffset", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AregularSwitch, meshOffset), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AregularSwitch_Statics::NewProp_meshOffset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AregularSwitch_Statics::NewProp_meshOffset_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AregularSwitch_Statics::NewProp_parent_MetaData[] = {
 		{ "Category", "regularSwitch" },
 		{ "Comment", "//components\n" },
@@ -263,6 +275,7 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_theGM,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_trigger,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_mesh,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_meshOffset,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AregularSwitch_Statics::NewProp_parent,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AregularSwitch_Statics::StaticCppClassTypeInfo = {
@@ -292,7 +305,7 @@ void EmptyLinkFunctionForGeneratedCoderegularSwitch() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AregularSwitch, 1038187580);
+	IMPLEMENT_CLASS(AregularSwitch, 1186632255);
 	template<> MYPROJECT_API UClass* StaticClass<AregularSwitch>()
 	{
 		return AregularSwitch::StaticClass();

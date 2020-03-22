@@ -30,6 +30,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneComponent* parent;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		USceneComponent* meshOffset;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* mesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		class UBoxComponent* trigger;

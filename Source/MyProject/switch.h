@@ -14,7 +14,8 @@ UENUM(BlueprintType)
 enum switchColorList
 {
 	orangeSwitch,
-	blueSwitch
+	blueSwitch,
+	purpleSwitch
 };
 
 UENUM(BlueprintType)
@@ -82,6 +83,8 @@ public:
 		FColor lightColorBlue;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
 		FColor lightColorOrange;
+	UPROPERTY(EditAnywhere, Category = "Need To Set")
+		FColor lightColorPurple;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")
 		TArray<Adoor*> controlList;
 	UPROPERTY(EditAnywhere, Category = "Need To Set")

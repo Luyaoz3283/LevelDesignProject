@@ -18,10 +18,12 @@ AregularSwitch::AregularSwitch()
 
 	//create components
 	parent = CreateDefaultSubobject<USceneComponent>(TEXT("parent"));
+	meshOffset = CreateDefaultSubobject<USceneComponent>(TEXT("offset"));
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("mesh"));
 	trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("trigger"));
 	RootComponent = parent;
-	mesh->SetupAttachment(parent);
+	meshOffset->SetupAttachment(parent);
+	mesh->SetupAttachment(meshOffset);
 	trigger->SetupAttachment(parent);
 }
 

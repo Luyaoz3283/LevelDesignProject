@@ -48,22 +48,30 @@ Aswitch::Aswitch()
 void Aswitch::BeginPlay()
 {
 	Super::BeginPlay();
-	//debug
-	if (ball == nullptr) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "please specify associated ball:" + ball->GetFName().ToString());
-	}
-
-
-	//create ball
-	ball->theSwitch = this;
 	//register to overlap event
 	buttonTrigger->OnComponentBeginOverlap.AddDynamic(this, &Aswitch::onOverlapBegin);
 	buttonTrigger->OnComponentEndOverlap.AddDynamic(this, &Aswitch::OnOverlapEnd);
 	plateTrigger->OnComponentBeginOverlap.AddDynamic(this, &Aswitch::onOverlapBegin);
 	plateTrigger->OnComponentEndOverlap.AddDynamic(this, &Aswitch::OnOverlapEnd);
-	//initialize
-	turnedOn = false;
-	ballInside = false;
+
+	//debug
+	if (ball == nullptr) {
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "please specify associated ball:" + this->GetFName().ToString());
+	}
+	else {
+		//create ball
+		ball->theSwitch = this;
+		ballOrigin = ball->GetActorLocation();
+		switch (SwitchColor)
+		{
+		case switchColorList::blueSwitch:
+			ball->ballMesh->SetMaterial(0, blueBallMaterial);
+			break;
+		case switchColorList::orangeSwitch:
+			ball->ballMesh->SetMaterial(0, orangeBallMaterial);
+			break;
+		}
+	}
 	//initialize color and material
 	switch (SwitchColor)
 	{
@@ -83,8 +91,22 @@ void Aswitch::BeginPlay()
 			compo->light->LightColor = lightColorOrange;
 		}
 		break;
+		//switch only
+	case switchColorList::purpleSwitch:
+		plateLight->LightColor = lightColorPurple;
+		buttonLight->LightColor = lightColorPurple;
+		for (auto& compo : controlList) {
+			compo->light->LightColor = lightColorPurple;
+		}
+		break;
 	}
 
+	
+	
+	//initialize
+	turnedOn = false;
+	ballInside = false;
+	
 
 
 	//if plate only:
@@ -101,19 +123,7 @@ void Aswitch::BeginPlay()
 		plateMesh->SetVisibility(false);
 		turnOn();
 	}
-	//get ball original position
-	if (ball != nullptr) {
-		ballOrigin = ball->GetActorLocation();
-		switch (SwitchColor)
-		{
-			case switchColorList::blueSwitch:
-				ball->ballMesh->SetMaterial(0, blueBallMaterial);
-				break;
-			case switchColorList::orangeSwitch:
-				ball->ballMesh->SetMaterial(0, orangeBallMaterial);
-				break;
-		}
-	}
+	
 	//set plate color
 	switch (SwitchColor)
 	{
@@ -133,7 +143,7 @@ void Aswitch::BeginPlay()
 void Aswitch::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (ballInside && ball->beingHeld == false && turnedOn == false) {
+	if (ball != nullptr && ballInside && ball->beingHeld == false && turnedOn == false) {
 		turnOn();
 	}
 }
@@ -208,7 +218,10 @@ void Aswitch::turnOff()
 
 void Aswitch::ballReset()
 {
-	ball->SetActorLocation(ballOrigin);
+	if (ball != nullptr) {
+		ball->SetActorLocation(ballOrigin);
+	}
+	
 }
 
 void Aswitch::searchTarget()
