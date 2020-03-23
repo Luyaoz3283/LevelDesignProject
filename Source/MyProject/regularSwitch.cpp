@@ -64,7 +64,7 @@ void AregularSwitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* O
 	if (OtherActor->ActorHasTag("player")) {
 		//chaInside = false;
 		theGM->setCurRegSwitch(nullptr);
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player out reg switch");
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player out reg switch");
 	}
 }
 

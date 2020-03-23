@@ -68,7 +68,6 @@ void AcollectableBall::resetLocation()
 //drop or pick up ball
 void AcollectableBall::Dropped()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball dropped");
 	if (onGround) {
 		onGround = false;
 	}
@@ -76,6 +75,9 @@ void AcollectableBall::Dropped()
 	ballMesh->SetSimulatePhysics(beingHeld? false:true);
 	ballMesh->SetEnableGravity(beingHeld? false:true);
 	ballMesh->SetCollisionEnabled(beingHeld ? ECollisionEnabled::NoCollision : ECollisionEnabled::QueryAndPhysics);
+	if (!beingHeld) {
+		MyGM->curBall = nullptr;
+	}
 }
 
 

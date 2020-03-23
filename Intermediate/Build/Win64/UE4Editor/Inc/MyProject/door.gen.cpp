@@ -23,6 +23,7 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	MYPROJECT_API UFunction* Z_Construct_UFunction_Adoor_turnOn();
+	MYPROJECT_API UFunction* Z_Construct_UFunction_Adoor_updateScreen();
 	ENGINE_API UClass* Z_Construct_UClass_UMaterial_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneCaptureComponent2D_NoRegister();
@@ -99,6 +100,7 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "onOverlapBegin", &Adoor::execonOverlapBegin },
 			{ "turnOn", &Adoor::execturnOn },
+			{ "updateScreen", &Adoor::execupdateScreen },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -204,6 +206,28 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_Adoor_turnOn_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_Adoor_updateScreen_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_Adoor_updateScreen_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "door.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_Adoor_updateScreen_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_Adoor, nullptr, "updateScreen", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_Adoor_updateScreen_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_Adoor_updateScreen_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_Adoor_updateScreen()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_Adoor_updateScreen_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -319,6 +343,7 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_Adoor_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_Adoor_onOverlapBegin, "onOverlapBegin" }, // 2238018170
 		{ &Z_Construct_UFunction_Adoor_turnOn, "turnOn" }, // 3403276319
+		{ &Z_Construct_UFunction_Adoor_updateScreen, "updateScreen" }, // 4284549230
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Adoor_Statics::Class_MetaDataParams[] = {
@@ -555,7 +580,7 @@ void EmptyLinkFunctionForGeneratedCodedoor() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(Adoor, 4135793227);
+	IMPLEMENT_CLASS(Adoor, 776780202);
 	template<> MYPROJECT_API UClass* StaticClass<Adoor>()
 	{
 		return Adoor::StaticClass();

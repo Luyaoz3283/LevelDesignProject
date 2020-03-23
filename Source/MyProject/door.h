@@ -112,7 +112,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void turnOn();
 	void turnOff();
-	void updateScreen();
+	UFUNCTION(BlueprintCallable)
+		void updateScreen();
 
 	
 	

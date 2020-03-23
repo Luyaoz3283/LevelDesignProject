@@ -56,7 +56,7 @@ void Aswitch::BeginPlay()
 
 	//debug
 	if (ball == nullptr) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "please specify associated ball:" + this->GetFName().ToString());
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "please specify associated ball:" + this->GetFName().ToString());
 	}
 	else {
 		//create ball
@@ -156,13 +156,13 @@ void Aswitch::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherA
 	
 	//update curSwitch when player enters
 	if (OverlappedComp->ComponentHasTag("button") && OtherActor->ActorHasTag("player")) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player enter switch");
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player enter switch");
 		MyGM->setCurSwitch(this);
 	}
 	//if ball drop into the container, turn on doors
 	if (OverlappedComp->ComponentHasTag("plate") &&  OtherActor == ball && turnedOn == false) {
 		ballInside = true;
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball inside plate");
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball inside plate");
 	}
 	
 	//press();
@@ -173,12 +173,12 @@ void Aswitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherAct
 	
 	//update curSwitch when player leaves
 	if (OverlappedComp->ComponentHasTag("button") && OtherActor->ActorHasTag("player")) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player out switch");
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "player out switch");
 		MyGM->setCurSwitch(nullptr);
 	}
 	//if ball disappear from the container -> turn off
 	if (OverlappedComp->ComponentHasTag("plate") && OtherActor == ball && turnedOn == true) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball out plate");
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "ball out plate");
 		ballInside = false;
 		turnOff();
 	}
@@ -187,7 +187,7 @@ void Aswitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherAct
 
 void Aswitch::turnOn()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "switch turn on");
+	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, this->GetName() + "switch turn on");
 	turnedOn = true;
 	//turn on plate light if it is not a direct connected doors
 	if (connectType != connectTypeList::plateOnly) {
@@ -216,7 +216,7 @@ void Aswitch::turnOn()
 
 void Aswitch::turnOff()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "switch turn off");
+	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "switch turn off");
 	turnedOn = false;
 	//turn off door
 	for (int i = 0; i < controlList.Num(); i++) {

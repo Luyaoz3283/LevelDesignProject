@@ -19,6 +19,14 @@ struct FHitResult;
 #define LevelDesignProject_Source_MyProject_door_h_28_SPARSE_DATA
 #define LevelDesignProject_Source_MyProject_door_h_28_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execupdateScreen) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->updateScreen(); \
+		P_NATIVE_END; \
+	} \
+ \
 	DECLARE_FUNCTION(execturnOn) \
 	{ \
 		P_FINISH; \
@@ -43,6 +51,14 @@ struct FHitResult;
 
 
 #define LevelDesignProject_Source_MyProject_door_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execupdateScreen) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->updateScreen(); \
+		P_NATIVE_END; \
+	} \
  \
 	DECLARE_FUNCTION(execturnOn) \
 	{ \

@@ -54,7 +54,7 @@ void Adoor::BeginPlay()
 	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, *GETENUMSTRING("doorColorStock", color1));
 	//debug
 	if (colorList.Num() == 0) {
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "need to specify door color!");
+		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "need to specify door color!");
 	}
 	else {
 		colorIndex = 0;
@@ -114,7 +114,7 @@ void Adoor::Tick(float DeltaTime)
 void Adoor::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	
-	if ((OtherActor->ActorHasTag("player") || OtherActor->ActorHasTag("ball"))&& targetDoor != NULL) {
+	if ((OtherActor->ActorHasTag("player"))&& targetDoor != NULL) {
 		FRotator testRotationVector(0.f, 0.f, 0.f);
 		// Set the location- this will blindly place the actor at the given location  
 		FVector destination1 = targetDoor->GetActorForwardVector() * 100.f + targetDoor->GetActorLocation();
