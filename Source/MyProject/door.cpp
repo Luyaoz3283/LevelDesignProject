@@ -62,9 +62,9 @@ void Adoor::BeginPlay()
 		projectcameraImage();
 	}
 	//initilize
-	if (targetDoor == nullptr) {
+	/*if (targetDoor == nullptr) {
 		turnOff();
-	}
+	}*/
 	
 	AActor* a = UGameplayStatics::GetActorOfClass(GetWorld(), AmyGM::StaticClass());
 	GM = Cast<AmyGM>(a);
@@ -167,6 +167,7 @@ void Adoor::projectcameraImage()
 void Adoor::turnOn()
 {
 	//turn on light
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, this->GetName() + "switch turn off");
 	light->SetVisibility(true,true);
 	//turn on door color
 	colorIndex = 0;
