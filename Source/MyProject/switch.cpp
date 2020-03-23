@@ -120,8 +120,10 @@ void Aswitch::BeginPlay()
 	}
 	//turrn on at the beginning and never turn off
 	if (connectType == connectTypeList::switchOnly) {
+		
 		plateMesh->SetVisibility(false);
 		turnOn();
+		buttonLight->LightColor = lightColorPurple;
 		
 	}
 	
@@ -188,8 +190,14 @@ void Aswitch::turnOn()
 	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "switch turn on");
 	turnedOn = true;
 	//turn on plate light if it is not a direct connected doors
-	plateLight->SetVisibility(true, true);
-	buttonLight->SetVisibility(true, true);
+	if (connectType != connectTypeList::plateOnly) {
+		buttonLight->SetVisibility(true, true);
+	}
+	if (connectType != connectTypeList::switchOnly) {
+		plateLight->SetVisibility(true, true);
+	}
+	
+	
 	//turn on door
 	for (int i = 0; i < controlList.Num(); i++) {
 		controlList[i]->turnOn();
@@ -202,7 +210,7 @@ void Aswitch::turnOn()
 	for (auto& compo : needToClose) {
 		compo->ballReset();
 		compo->turnOff();
-		
+		linkedSwitch = compo;
 	}
 }
 
@@ -217,7 +225,9 @@ void Aswitch::turnOff()
 	//turn off plate light
 	plateLight->SetVisibility(false, false);
 	buttonLight->SetVisibility(false, false);
-	
+	if (linkedSwitch != nullptr) {
+		linkedSwitch->turnOn();
+	}
 }
 
 void Aswitch::ballReset()

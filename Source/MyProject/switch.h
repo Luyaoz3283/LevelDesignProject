@@ -94,6 +94,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
 		UMaterialInstance* orangeBallMaterial;
 	
+	Aswitch* linkedSwitch;
 	//when press the switch
 	UFUNCTION()
 		void onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
