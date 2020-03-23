@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyProject.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{7423BAFC-989C-44CD-8C4F-4B6FC5E3AF45}</UniqueIdentifier>
+      <UniqueIdentifier>{F7084D2E-9095-41F8-A052-8786E37E409B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyProject.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitignore" />
     <None Include="..\..\README.md" />
     <Filter Include="Config">
-      <UniqueIdentifier>{EDC9430D-5085-44F8-8A6D-760F20003726}</UniqueIdentifier>
+      <UniqueIdentifier>{5EBA5E77-ADCC-4131-AB43-4271B87162C8}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,7 +32,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MyProject">
-      <UniqueIdentifier>{65E889BE-6C9C-4CB0-B92F-BA23C4250B29}</UniqueIdentifier>
+      <UniqueIdentifier>{6CA5B187-868D-46F4-9D07-2F4B7B65838A}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\MyProject\collectableBall.cpp">
       <Filter>Source\MyProject</Filter>
