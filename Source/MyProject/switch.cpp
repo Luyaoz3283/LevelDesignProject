@@ -214,6 +214,29 @@ void Aswitch::turnOn()
 	}
 }
 
+void Aswitch::specialTurnon()
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, this->GetName() + "switch turn on");
+	turnedOn = true;
+	//turn on plate light if it is not a direct connected doors
+	if (connectType != connectTypeList::plateOnly) {
+		buttonLight->SetVisibility(true, true);
+	}
+	if (connectType != connectTypeList::switchOnly) {
+		plateLight->SetVisibility(true, true);
+	}
+	//turn on door
+	for (int i = 0; i < controlList.Num(); i++) {
+		controlList[i]->light->SetVisibility(true, true);
+		controlList[i]->displayColor();
+		
+	}
+	searchTarget();
+	for (auto& compo : controlList) {
+		compo->updateScreen();
+	}
+}
+
 void Aswitch::turnOff()
 {
 	//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "switch turn off");
@@ -228,6 +251,13 @@ void Aswitch::turnOff()
 	/*if (linkedSwitch != nullptr) {
 		linkedSwitch->turnOn();
 	}*/
+	for (auto& compo : needToClose) {
+		if (compo->ActorHasTag("special")) {
+			compo->specialTurnon();
+		}
+		
+		//linkedSwitch = compo;
+	}
 }
 
 void Aswitch::ballReset()

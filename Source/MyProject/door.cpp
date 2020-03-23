@@ -182,6 +182,7 @@ void Adoor::turnOff()
 	light->SetVisibility(false, false);
 	doorMesh->SetMaterial(0, greyMaterial);
 	screen->SetVisibility(false);
+	targetDoor = nullptr;
 }
 void Adoor::updateScreen()
 {

@@ -107,6 +107,7 @@ public:
 	
 
 	void turnOn();
+	void specialTurnon();
 	void turnOff();
 	void ballReset();
 	void searchTarget();

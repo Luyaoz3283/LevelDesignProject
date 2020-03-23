@@ -1,15 +1,15 @@
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
-D:\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-D:\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-F:\gameProject\LevelDesignProject\Source\MyProject/myGM.h
-F:\gameProject\LevelDesignProject\Source\MyProject\door.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\door.generated.h
-F:\gameProject\LevelDesignProject\Source\MyProject\switch.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\switch.generated.h
-F:\gameProject\LevelDesignProject\Source\MyProject\regularSwitch.h
-F:\gameProject\LevelDesignProject\Source\MyProject\RegularGate.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\RegularGate.generated.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\regularSwitch.generated.h
-F:\gameProject\LevelDesignProject\Source\MyProject\collectableBall.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\collectableBall.generated.h
-F:\gameProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\myGM.generated.h
+D:\levelDesignProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Development\MyProject\Definitions.MyProject.h
+D:\Epic Game\Unreal 4\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\Epic Game\Unreal 4\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+D:\levelDesignProject\LevelDesignProject\Source\MyProject/myGM.h
+D:\levelDesignProject\LevelDesignProject\Source\MyProject\door.h
+D:\levelDesignProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\door.generated.h
+D:\levelDesignProject\LevelDesignProject\Source\MyProject\switch.h
+D:\levelDesignProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\switch.generated.h
+D:\levelDesignProject\LevelDesignProject\Source\MyProject\regularSwitch.h
+D:\levelDesignProject\LevelDesignProject\Source\MyProject\RegularGate.h
+D:\levelDesignProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\RegularGate.generated.h
+D:\levelDesignProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\regularSwitch.generated.h
+D:\levelDesignProject\LevelDesignProject\Source\MyProject\collectableBall.h
+D:\levelDesignProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\collectableBall.generated.h
+D:\levelDesignProject\LevelDesignProject\Intermediate\Build\Win64\UE4Editor\Inc\MyProject\myGM.generated.h
