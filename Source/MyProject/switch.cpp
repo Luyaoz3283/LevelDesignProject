@@ -210,7 +210,7 @@ void Aswitch::turnOn()
 	for (auto& compo : needToClose) {
 		compo->ballReset();
 		compo->turnOff();
-		linkedSwitch = compo;
+		//linkedSwitch = compo;
 	}
 }
 
@@ -225,9 +225,9 @@ void Aswitch::turnOff()
 	//turn off plate light
 	plateLight->SetVisibility(false, false);
 	buttonLight->SetVisibility(false, false);
-	if (linkedSwitch != nullptr) {
+	/*if (linkedSwitch != nullptr) {
 		linkedSwitch->turnOn();
-	}
+	}*/
 }
 
 void Aswitch::ballReset()
