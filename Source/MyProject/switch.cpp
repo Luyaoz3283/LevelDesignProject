@@ -122,6 +122,7 @@ void Aswitch::BeginPlay()
 	if (connectType == connectTypeList::switchOnly) {
 		plateMesh->SetVisibility(false);
 		turnOn();
+		
 	}
 	
 	//set plate color
@@ -186,14 +187,17 @@ void Aswitch::turnOn()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "switch turn on");
 	turnedOn = true;
+	//turn on plate light if it is not a direct connected doors
+	plateLight->SetVisibility(true, true);
+	buttonLight->SetVisibility(true, true);
 	//turn on door
 	for (int i = 0; i < controlList.Num(); i++) {
 		controlList[i]->turnOn();
 	}
-	//turn on plate light if it is not a direct connected doors
-	plateLight->SetVisibility(true, true);
-	buttonLight->SetVisibility(true, true);
 	searchTarget();
+	for (auto& compo : controlList) {
+		compo->updateScreen();
+	}
 	//close linked switch
 	for (auto& compo : needToClose) {
 		compo->ballReset();

@@ -71,6 +71,9 @@ void AmyGM::pressE()
 			
 		}
 		curSwitch->searchTarget();	
+		for (auto& compo : curSwitch->controlList) {
+			compo->updateScreen();
+		}
 	}
 	//lift ball
 	if (curBall != nullptr) {

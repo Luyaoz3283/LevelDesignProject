@@ -20,7 +20,9 @@ Adoor::Adoor()
 	PrimaryActorTick.bCanEverTick = true;
 
 	//components
+	offset = CreateDefaultSubobject<USceneComponent>(TEXT("offset"));
 	doorMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("doorMesh"));
+	screenOffset = CreateDefaultSubobject<USceneComponent>(TEXT("screenOffset"));
 	screen = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("screen"));
 	enterTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("collisionBox"));
 	parent = CreateDefaultSubobject<USceneComponent>(TEXT("parentScene"));
@@ -30,15 +32,15 @@ Adoor::Adoor()
 	//setup hierchy
 	viewCaptureCam = CreateDefaultSubobject<USceneCaptureComponent2D>(TEXT("captureCamera"));
 	RootComponent = parent;
-	doorMesh->SetupAttachment(parent);
-	screen->SetupAttachment(parent);
-	enterTrigger->SetupAttachment(screen);
+	offset->SetupAttachment(parent);
+	doorMesh->SetupAttachment(offset);
+	screen->SetupAttachment(screenOffset);
+	screenOffset->SetupAttachment(parent);
+	enterTrigger->SetupAttachment(screenOffset);
 	camParent->SetupAttachment(parent);
 	viewCaptureCam->SetupAttachment(camParent);
-	light->SetupAttachment(doorMesh);
-	destination->SetupAttachment(doorMesh);
-	
-
+	light->SetupAttachment(offset);
+	destination->SetupAttachment(offset);
 	enterTrigger->OnComponentBeginOverlap.AddDynamic(this, &Adoor::onOverlapBegin);
 
 	
@@ -76,7 +78,7 @@ void Adoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	if (this->ActorHasTag("test")) {
+	if (this->targetDoor!= nullptr && playerClose) {
 		//calculate camera turning angle
 		/*float a = FVector::DotProduct(targetCharacter->GetActorForwardVector(), this->GetActorForwardVector() * (-1.f));
 		FVector b = FVector::CrossProduct(this->GetActorForwardVector(), FVector::UpVector);
@@ -116,7 +118,8 @@ void Adoor::onOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAct
 		FRotator testRotationVector(0.f, 0.f, 0.f);
 		// Set the location- this will blindly place the actor at the given location  
 		FVector destination1 = targetDoor->GetActorForwardVector() * 100.f + targetDoor->GetActorLocation();
-		targetCharacter->SetActorLocation(destination1, false);
+		FVector destination2 = targetDoor->destination->GetComponentLocation();
+		targetCharacter->SetActorLocation(destination2, false);
 		targetCharacter->AddControllerYawInput(180);
 		targetCharacter->SetActorRotation(testRotationVector, ETeleportType::None);
 		//testTargetCharacter -> SetActorLocationAndRotation(ActorLocation, testRotationVector, false, 0, ETeleportType::None);
@@ -158,6 +161,7 @@ void Adoor::projectcameraImage()
 {
 	viewCaptureCam->TextureTarget = renderTex;
 }
+
 void Adoor::turnOn()
 {
 	//turn on light
@@ -167,13 +171,7 @@ void Adoor::turnOn()
 	if (colorList.Num() > 0) {
 		curColor = colorList[colorIndex];
 	}
-	
 	displayColor();
-	screen->SetVisibility(true);
-	if (targetDoor != nullptr) {
-		screen->SetMaterial(0, targetDoor->renderMat);
-	}
-	
 }
 
 void Adoor::turnOff()
@@ -181,6 +179,13 @@ void Adoor::turnOff()
 	light->SetVisibility(false, false);
 	doorMesh->SetMaterial(0, greyMaterial);
 	screen->SetVisibility(false);
+}
+void Adoor::updateScreen()
+{
+	if (targetDoor != nullptr) {
+		screen->SetVisibility(true);
+		screen->SetMaterial(0, targetDoor->renderMat);
+	}
 }
 
 

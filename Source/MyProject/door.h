@@ -46,7 +46,11 @@ public:
 
 	//components
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		USceneComponent* offset;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* doorMesh;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		USceneComponent* screenOffset;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* screen;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -66,6 +70,8 @@ public:
 	
 	APawn* targetCharacter;
 	int colorIndex;
+	UPROPERTY(BlueprintReadWrite)
+		bool playerClose;
 	TEnumAsByte<doorColorStock> curColor;
 
 	//custom variables
@@ -83,15 +89,17 @@ public:
 		UMaterial* greyMaterial;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
 		Adoor* targetDoor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
+		UTextureRenderTarget2D* renderTex;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Need To Set")
+		UMaterial* renderMat;
 	//camera
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneCaptureComponent2D* viewCaptureCam;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USceneComponent* camParent;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		UTextureRenderTarget2D* renderTex;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		UMaterial* renderMat;
+	
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UMaterial* noDisplayMat;
 
@@ -104,6 +112,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void turnOn();
 	void turnOff();
+	void updateScreen();
 
 	
 	
