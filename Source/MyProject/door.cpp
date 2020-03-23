@@ -90,6 +90,9 @@ void Adoor::Tick(float DeltaTime)
 		}*/
 		//correct
 		
+
+
+
 		FVector playerDirection = (screen->GetComponentLocation() - targetCharacter->GetActorLocation()).GetSafeNormal();
 		float dotProduct = FVector::DotProduct(this->GetActorForwardVector() * (-1.f), playerDirection);
 		float rawDegree = acos(dotProduct) * 180.f / PI;
@@ -98,10 +101,6 @@ void Adoor::Tick(float DeltaTime)
 		if (rightDegree < 90) {
 			rawDegree = rawDegree * (-1.f);
 		}
-		
-		
-		
-		//GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, "facing:" + FString::FromInt(rawDegree));
 		FRotator e(0, rawDegree, 0);
 		targetDoor->camParent->SetRelativeRotation(e);
 	}
@@ -141,6 +140,9 @@ void Adoor::displayColor()
 		}
 		else if (curColor == doorColorStock::green) {
 			doorMesh->SetMaterial(0, greenMaterial);
+		}
+		else if (curColor == doorColorStock::grey) {
+			doorMesh->SetMaterial(0, greyMaterial);
 		}
 	}
 }
